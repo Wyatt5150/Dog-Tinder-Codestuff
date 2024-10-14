@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5pgeiq6wwn7x"]
+
+[ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
+
+[node name="ProfileView" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_h8h0o")
+text = "PROFILE VIEW"

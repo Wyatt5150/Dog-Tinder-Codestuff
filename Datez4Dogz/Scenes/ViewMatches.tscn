@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ch1gnpeuvoa7p"]
+
+[ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_xwuu7"]
+
+[node name="ViewMatches" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = ExtResource("1_xwuu7")
+text = "LABEL"
