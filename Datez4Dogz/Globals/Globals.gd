@@ -12,8 +12,18 @@ var declined:Array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
+	make_default_profiles()
 	pass # Replace with function body.
+
+func make_default_profiles():
+	var profile = UserProfile.new()
+	profile.username = "Norm El Man"
+	profile.location = "real place, tx"
+	profile.about = "I am a person that exist"
+	profile.pictures = [load("res://Sprites/DogPics/husky2-1.jpg"),load("res://Sprites/DogPics/husky2-2.jpg")]
+	
+	undecided.append(profile)
+	pass
 
 func set_font_size(size):
 	var t:Theme = load("res://Themes/Theme.tres")
