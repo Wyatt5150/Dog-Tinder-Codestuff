@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1ml36s2gilgm"]
+
+[ext_resource type="Texture2D" uid="uid://bxkaot5v6hvvm" path="res://Sprites/Icons/Accept.png" id="1_yovy5"]
+[ext_resource type="Texture2D" uid="uid://dfaqnu57p8s40" path="res://Sprites/DogPics/husky2-1.jpg" id="2_5k8b0"]
+
+[node name="ProfileButton" type="Button"]
+clip_children = 1
+offset_left = -83.0
+offset_top = -84.0
+offset_right = 86.0
+offset_bottom = 85.0
+icon = ExtResource("1_yovy5")
+flat = true
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -211.5
+offset_top = -231.0
+offset_right = 211.5
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5k8b0")
+expand_mode = 1
+stretch_mode = 5
