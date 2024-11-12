@@ -5,7 +5,7 @@
 [node name="ProfileView" type="Node2D"]
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+offset_right = 467.0
+offset_bottom = 96.0
 theme = ExtResource("1_h8h0o")
 text = "PROFILE VIEW"
