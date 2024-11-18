@@ -100,7 +100,7 @@ grow_vertical = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_uqcmo")
 flat = true
 
-[connection signal="button_down" from="UserImageDisplay/Prev" to="." method="change_image"]
-[connection signal="button_up" from="UserImageDisplay/Next" to="." method="change_image"]
+[connection signal="button_down" from="UserImageDisplay/Prev" to="." method="change_image" binds= [-1]]
+[connection signal="button_down" from="UserImageDisplay/Next" to="." method="change_image" binds= [1]]
 [connection signal="button_down" from="About/Button" to="." method="pressed_about"]
 [connection signal="button_up" from="About/Button" to="." method="released_about"]

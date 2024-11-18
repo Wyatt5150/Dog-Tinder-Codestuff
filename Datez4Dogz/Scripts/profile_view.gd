@@ -14,7 +14,7 @@ var aboutVel:float
 var aboutMaxY:float
 var aboutMinY:float
 
-const aboutAcc:float = 700
+const aboutAcc:float = 2500
 const verPadding:float = 10
 const horPadding:float = 10
 
@@ -134,4 +134,7 @@ func pressed_about() -> void:
 
 func released_about() -> void:
 	holdingAbout = false
+	print(aboutVel)
+	if abs(aboutVel) < 1000:
+		aboutVel = 0
 	pass
