@@ -95,9 +95,6 @@ autowrap_mode = 3
 layout_mode = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d77at")
 flat = true
-<<<<<<< HEAD
 
 [connection signal="button_down" from="UserImageDisplay/Prev" to="." method="change_image" binds= [-1]]
-[connection signal="button_up" from="UserImageDisplay/Next" to="." method="change_image" binds= [1]]
-=======
->>>>>>> 17eccd1f3b34df131ab6886e27b670828c60047b
+[connection signal="button_down" from="UserImageDisplay/Next" to="." method="change_image" binds= [1]]
