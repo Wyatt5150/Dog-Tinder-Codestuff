@@ -17,9 +17,9 @@ func _ready() -> void:
 
 func make_default_profiles():
 	var profile = UserProfile.new()
-	profile.username = "Norm El Man"
+	profile.name = "Norm El Man"
 	profile.location = "real place, tx"
-	profile.about = "I am a person that exist"
+	profile.bio = "I am a person that exist"
 	profile.pictures = [load("res://Sprites/DogPics/husky2-1.jpg"),load("res://Sprites/DogPics/husky2-2.jpg")]
 	
 	undecided.append(profile)
