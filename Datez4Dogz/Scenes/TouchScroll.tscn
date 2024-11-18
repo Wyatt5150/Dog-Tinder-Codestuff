@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfttifbxiujqg"]
+
+[ext_resource type="Script" path="res://Scripts/touch_scroll.gd" id="1_72vj0"]
+
+[node name="TouchScroll" type="Button"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_72vj0")
+
+[connection signal="button_down" from="." to="." method="button_down"]
+[connection signal="button_up" from="." to="." method="button_up"]

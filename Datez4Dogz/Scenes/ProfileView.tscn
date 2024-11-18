@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b5pgeiq6wwn7x"]
+[gd_scene load_steps=10 format=3 uid="uid://b5pgeiq6wwn7x"]
 
 [ext_resource type="Script" path="res://Scripts/profile_view.gd" id="1_0g7d7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
@@ -7,8 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://t0cc7i4fsvh1" path="res://icon.svg" id="4_htdu4"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="5_o150v"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="6_ee2mv"]
+[ext_resource type="PackedScene" uid="uid://cfttifbxiujqg" path="res://Scenes/TouchScroll.tscn" id="8_royy3"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uqcmo"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d77at"]
 
 [node name="ProfileView" type="Node2D"]
 script = ExtResource("1_0g7d7")
@@ -90,17 +91,7 @@ grow_horizontal = 2
 theme = ExtResource("6_ee2mv")
 autowrap_mode = 3
 
-[node name="Button" type="Button" parent="About"]
+[node name="TouchScroll" parent="About" instance=ExtResource("8_royy3")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_uqcmo")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d77at")
 flat = true
-
-[connection signal="button_down" from="UserImageDisplay/Prev" to="." method="change_image" binds= [-1]]
-[connection signal="button_down" from="UserImageDisplay/Next" to="." method="change_image" binds= [1]]
-[connection signal="button_down" from="About/Button" to="." method="pressed_about"]
-[connection signal="button_up" from="About/Button" to="." method="released_about"]
