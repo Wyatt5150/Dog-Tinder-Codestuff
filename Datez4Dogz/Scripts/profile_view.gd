@@ -7,24 +7,14 @@ var imageIndex:int
 
 var buttons
 
-var holdingAbout:bool
-var aboutContainer:Control
-var prevY:float
-var aboutVel:float
-var aboutMaxY:float
-var aboutMinY:float
-
-const aboutAcc:float = 2500
 const verPadding:float = 10
 const horPadding:float = 10
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	holdingAbout = false
-	aboutContainer = $About
-	aboutVel = 0
-	aboutMaxY = 584
-	aboutMinY = 0
+	var aboutMaxY
+	$About/TouchScroll.maxY = 584
+	$About/TouchScroll.minY = 0
 	
 	# set up image display stuff
 	var next = $UserImageDisplay/Next
@@ -54,22 +44,7 @@ func _ready() -> void:
 	pass
 	
 func _process(delta: float) -> void:
-	if holdingAbout:
-		aboutVel = (get_global_mouse_position().y-prevY)*(1/delta)
-		aboutContainer.position.y += aboutVel*delta
-		prevY = get_global_mouse_position().y
-	else:
-		if aboutContainer.position.y > aboutMaxY:
-			aboutVel = 0
-			aboutContainer.position.y = move_toward(aboutContainer.position.y, aboutMaxY, 1000*delta)
-		elif aboutContainer.position.y < aboutMinY:
-			aboutVel = 0
-			aboutContainer.position.y = move_toward(aboutContainer.position.y, aboutMinY, 1000*delta)
-		# glide
-		elif aboutVel != 0:
-			aboutContainer.position.y += aboutVel*delta
-		
-			aboutVel = move_toward(aboutVel, 0, aboutAcc*delta)
+	pass
 	
 func load_profile(userProfile:UserProfile):
 	profile = userProfile
@@ -89,7 +64,7 @@ func load_info(isUserProfile:bool = true):
 	var username = container.get_node("Name")
 	username.text = profile.username
 	
-	load_profiles()
+	load_profile_buttons()
 	
 	var about = container.get_node("About")
 	about.text = profile.about
@@ -98,8 +73,8 @@ func load_info(isUserProfile:bool = true):
 	# determine about container size
 	var viewportHeight = get_viewport().get_visible_rect().size.y
 	info.size.y = max(about.position.y + get_label_height(about) + verPadding*2 + 100, viewportHeight - verPadding*2)
-	info.position.y = aboutMaxY
-	aboutMinY = -(info.size.y - viewportHeight) - verPadding
+	info.position.y = $About/TouchScroll.maxY
+	$About/TouchScroll.minY = -(info.size.y - viewportHeight) - verPadding
 	
 	# set margins
 	container.size = info.size - Vector2(horPadding*2, verPadding*2)
@@ -122,19 +97,5 @@ func change_image(incr: int) -> void:
 	set_profile_image(imageIndex+incr)
 	pass
 
-func load_profiles():
-	pass
-	
-
-func pressed_about() -> void:
-	prevY = get_global_mouse_position().y
-	holdingAbout = true
-	pass
-
-
-func released_about() -> void:
-	holdingAbout = false
-	print(aboutVel)
-	if abs(aboutVel) < 1000:
-		aboutVel = 0
+func load_profile_buttons():
 	pass
