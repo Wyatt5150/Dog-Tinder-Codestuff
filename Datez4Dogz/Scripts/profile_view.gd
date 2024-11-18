@@ -62,12 +62,20 @@ func load_info(isUserProfile:bool = true):
 	var container = $About/Container 	
 		
 	var username = container.get_node("Name")
+<<<<<<< HEAD
 	username.text = profile.name
+=======
+	username.text = profile.username
+>>>>>>> 17eccd1f3b34df131ab6886e27b670828c60047b
 	
 	load_profile_buttons()
 	
 	var about = container.get_node("About")
+<<<<<<< HEAD
 	about.text = profile.bio
+=======
+	about.text = profile.about
+>>>>>>> 17eccd1f3b34df131ab6886e27b670828c60047b
 	about.position.y = username.position.y + get_label_height(username) + verPadding
 	
 	# determine about container size
