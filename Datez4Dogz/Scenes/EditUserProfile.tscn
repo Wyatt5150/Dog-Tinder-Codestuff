@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://5kr7gpwa4bmm"]
+[gd_scene load_steps=5 format=3 uid="uid://5kr7gpwa4bmm"]
 
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_et03q"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="2_0peoq"]
 [ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_5c1me"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_fet4r"]
 
 [node name="EditUserProfile" type="Control"]
 layout_mode = 3
@@ -60,8 +61,10 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 0
 
 [node name="Username" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 label_text = "Username"
 placeholder_text = "Enter  A Username!"
@@ -70,15 +73,58 @@ display_error_text = false
 invalid_text = "Username cannot be blank"
 
 [node name="Password" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
-custom_minimum_size = Vector2(0, 192)
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 label_text = "Password"
 placeholder_text = "Enter A Password!"
 secret = true
 subtext = "Password must be at least 8 characters long and contain uppercase, lowercase, and numeric values."
+display_error_text = false
 invalid_text = "Invalid Password"
 use_regex = true
 regex_key = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$"
+
+[node name="NameSection" type="Panel" parent="VBoxContainer/Content/VBoxContainer"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("3_fet4r")
+
+[node name="Label" type="Label" parent="VBoxContainer/Content/VBoxContainer/NameSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name Information"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FirstName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+label_text = "First"
+placeholder_text = "Enter Your First Name!"
+display_subtext = false
+display_error_text = false
+invalid_text = "First Name cannot be blank"
+
+[node name="PreferredName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+label_text = "Preferred"
+placeholder_text = "Enter Your Preferred Name!"
+display_subtext = false
+display_error_text = false
+
+[node name="LastName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+label_text = "Last"
+placeholder_text = "Enter Your Last Name!"
+display_subtext = false
+display_error_text = false
 
 [node name="NavigationButtons" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
