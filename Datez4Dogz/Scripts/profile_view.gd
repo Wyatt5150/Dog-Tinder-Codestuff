@@ -10,6 +10,9 @@ var buttons
 const verPadding:float = 10
 const horPadding:float = 10
 
+
+@onready var userImage : TextureRect = %UserImage
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	var aboutMaxY
@@ -17,13 +20,13 @@ func _ready() -> void:
 	$About/TouchScroll.min = 0
 	
 	# set up image display stuff
-	var next = $UserImageDisplay/Next
-	var prev = $UserImageDisplay/Prev
+	var next = %Next
+	var prev = %Prev
 	var backdrop = $UserImageDisplay
 	
 	# set up image 
 	backdrop.position.x = get_viewport().get_visible_rect().size.x/2 - backdrop.size.x/2
-	backdrop.get_node("UserImage").size = backdrop.size
+	userImage.size = backdrop.size
 
 	# set buttons to change image
 	prev.position.x = 0
@@ -41,7 +44,7 @@ func _ready() -> void:
 	$About.position.x = 0
 	
 	load_user(Globals.undecided[0])
-	pass
+
 	
 func load_user(p:UserProfile):
 	# call upon starting this scene or to change user
@@ -117,7 +120,7 @@ func set_profile_image(index):
 	index += profile.pictures.size()
 	index = index%profile.pictures.size()
 	imageIndex = index
-	$UserImageDisplay/UserImage.texture = images[index]
+	userImage.texture = images[index]
 
 func change_image(incr: int) -> void:
 	set_profile_image(imageIndex+incr)
