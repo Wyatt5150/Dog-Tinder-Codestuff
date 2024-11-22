@@ -37,16 +37,15 @@ func _ready() -> void:
 	for but in buttons:
 		but.disabled = true
 	
-	$About.size.x = get_viewport().get_visible_rect().size.x - horPadding*2
-	$About.position.x = verPadding
+	$About.size.x = get_viewport().get_visible_rect().size.x
+	$About.position.x = 0
 	
 	load_user(Globals.undecided[0])
 	pass
 	
 func load_user(p:UserProfile):
 	# call upon starting this scene or to change user
-	profile = p
-	load_profile_buttons()
+	load_profile_buttons(p)
 
 func load_profile(p:Profile, butPos:Vector2):
 	if p == profile:
@@ -70,23 +69,44 @@ func load_info():
 	username.text = profile.name
 	
 	var info = container.get_node("Info")
+	info.text = str(profile.age) + " - "
 	if profile.profileType == "user":
-		info.text = profile.pronouns
+		info.text += profile.pronouns
 	else:
-		info.text = profile.gender
+		info.text += profile.gender
 	info.position.y = username.position.y + get_label_height(username) + verPadding
 	
 	var bio = container.get_node("Bio")
 	bio.text = profile.bio
 	bio.position.y = info.position.y + get_label_height(info) + verPadding
 	
+	var misc = container.get_node("Misc")
+	misc.text = ""
+	if profile.profileType == "dog":
+		if profile.vaccinated:
+			misc.text += "Vaccinated"
+		else:
+			misc.text += "Not Vaccinated"
+		
+		misc.text += "\n"
+		
+		if !profile.neutered:
+			misc.text += "Not "
+		
+		if profile.gender == "f":
+			misc.text += "Spayed"
+		else:
+			misc.text += "Neutered"
+		
+	misc.position.y = bio.position.y + get_label_height(bio) + verPadding
+	
 	# determine about container size
 	var viewportHeight = get_viewport().get_visible_rect().size.y
 	about.size.y = max(bio.position.y + get_label_height(bio) + verPadding*2 + 100,
 		viewportHeight - verPadding*2 - $ProfileSelect/SelectionIndicator.scale.x*100)
-	print(str($ProfileSelect/SelectionIndicator.scale.x*100) + " " + str(about.size.y))
+	
 	about.position.y = $About/TouchScroll.max
-	$About/TouchScroll.min = -(about.size.y - viewportHeight) - verPadding
+	$About/TouchScroll.min = -(about.size.y - viewportHeight)
 	
 	# set margins
 	container.size = about.size - Vector2(horPadding*2, verPadding*2)
@@ -103,7 +123,7 @@ func change_image(incr: int) -> void:
 	set_profile_image(imageIndex+incr)
 	pass
 
-func load_profile_buttons():
+func load_profile_buttons(p:UserProfile):
 	var container = $ProfileSelect
 	# button for user
 	var but:Button = profileButton.instantiate()
@@ -111,11 +131,12 @@ func load_profile_buttons():
 	container.add_child(but)
 	but.position = Vector2(5,5)
 	var xPos = but.position.x
-	but.set_profile(profile)
+	but.set_profile(p)
 	but.clicked.connect(load_profile.bind(but.position+Vector2(half,half)))
 	$ProfileSelect/SelectionIndicator.scale = Vector2((but.size.x + 10) / 100,(but.size.x + 10) / 100)
+	load_profile(p, but.position+Vector2(half,half))
 	# button for each dog
-	for dog in profile.dogs:
+	for dog in p.dogs:
 		but = profileButton.instantiate()
 		xPos += but.size.x+5
 		container.add_child(but)
@@ -123,7 +144,6 @@ func load_profile_buttons():
 		but.set_profile(dog)
 		but.clicked.connect(load_profile.bind(but.position+Vector2(half,half)))
 	
-	load_profile(profile, but.position+Vector2(half,half))
 
 func get_label_height(label):
 	return label.get_line_count()*(label.get_line_height()+label.get_theme_constant("line_spacing"))

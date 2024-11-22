@@ -107,6 +107,15 @@ grow_horizontal = 2
 theme = ExtResource("6_ee2mv")
 autowrap_mode = 3
 
+[node name="Misc" type="Label" parent="About/Container"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 42.0
+grow_horizontal = 2
+theme = ExtResource("6_ee2mv")
+autowrap_mode = 3
+
 [node name="TouchScroll" parent="About" instance=ExtResource("8_royy3")]
 layout_mode = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d77at")
