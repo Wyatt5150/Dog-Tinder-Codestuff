@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://5kr7gpwa4bmm"]
+[gd_scene load_steps=10 format=3 uid="uid://5kr7gpwa4bmm"]
 
+[ext_resource type="Script" path="res://Scripts/edit_user_profile.gd" id="1_5ynhn"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_et03q"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="2_0peoq"]
 [ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_5c1me"]
@@ -26,6 +27,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_5ynhn")
 
 [node name="Background Color" type="ColorRect" parent="."]
 layout_mode = 1
@@ -172,4 +174,7 @@ text = "BACK"
 [node name="Save" type="Button" parent="VBoxContainer/NavigationButtons/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SAVE"
+text = "CONTINUE"
+
+[connection signal="pressed" from="VBoxContainer/NavigationButtons/VBoxContainer/Back" to="." method="BackButton"]
+[connection signal="pressed" from="VBoxContainer/NavigationButtons/VBoxContainer/Save" to="." method="Submit"]

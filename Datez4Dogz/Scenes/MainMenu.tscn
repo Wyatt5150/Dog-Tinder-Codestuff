@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5yuaqllf0wpw"]
+[gd_scene load_steps=4 format=3 uid="uid://b5yuaqllf0wpw"]
 
+[ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_3rsg7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_qlmn8"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="2_60r4u"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -9,13 +11,51 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_3rsg7")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 96.0
+offset_bottom = 560.0
 grow_horizontal = 2
 theme = ExtResource("1_qlmn8")
-text = "MAIN MENU"
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_font_sizes/font_size = 128
+text = "Datez 4 Dogz"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 51.0
+offset_top = -323.0
+offset_right = -51.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("2_60r4u")
+theme_override_constants/separation = 16
+
+[node name="NewUser" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 32
+text = "New User !"
+
+[node name="ReturningUser" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Returning User !"
+
+[connection signal="pressed" from="VBoxContainer/NewUser" to="." method="NewUser"]
+[connection signal="pressed" from="VBoxContainer/ReturningUser" to="." method="ReturningUser"]
