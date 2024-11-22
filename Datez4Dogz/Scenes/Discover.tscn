@@ -1,11 +1,50 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddaohhoap1r2e"]
+[gd_scene load_steps=6 format=3 uid="uid://ddaohhoap1r2e"]
 
-[ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_hyirr"]
+[ext_resource type="Script" path="res://Scripts/discover.gd" id="1_f8lsh"]
+[ext_resource type="PackedScene" uid="uid://b5pgeiq6wwn7x" path="res://Scenes/ProfileView.tscn" id="1_tibke"]
+[ext_resource type="Texture2D" uid="uid://bxkaot5v6hvvm" path="res://Sprites/Icons/Accept.png" id="2_pb1tn"]
+[ext_resource type="Theme" uid="uid://b3e6aarkeujla" path="res://Themes/DimButtonIconTheme.tres" id="2_rujlb"]
+[ext_resource type="Texture2D" uid="uid://nwxw4ek1aqtp" path="res://Sprites/Icons/Reject.png" id="3_bujnp"]
 
-[node name="Discover" type="Node2D"]
+[node name="Discover" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_f8lsh")
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
-theme = ExtResource("1_hyirr")
-text = "DISCOVER"
+[node name="ProfileView" parent="." instance=ExtResource("1_tibke")]
+
+[node name="Accept" type="Button" parent="."]
+offset_left = 268.0
+offset_top = 719.0
+offset_right = 437.0
+offset_bottom = 888.0
+theme = ExtResource("2_rujlb")
+icon = ExtResource("2_pb1tn")
+flat = true
+
+[node name="Decline" type="Button" parent="."]
+offset_left = 30.0
+offset_top = 714.0
+offset_right = 199.0
+offset_bottom = 883.0
+theme = ExtResource("2_rujlb")
+icon = ExtResource("3_bujnp")
+flat = true
+
+[node name="NooneFound" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 546.0
+offset_bottom = 959.0
+
+[node name="Label" type="Label" parent="NooneFound"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 259.0
+offset_right = 541.0
+offset_bottom = 480.0
+text = "We can't find any more users that match your preferences right now
+
+Try again later"
+
+[connection signal="pressed" from="Accept" to="." method="_on_accept_pressed"]
+[connection signal="pressed" from="Decline" to="." method="_on_decline_pressed"]
