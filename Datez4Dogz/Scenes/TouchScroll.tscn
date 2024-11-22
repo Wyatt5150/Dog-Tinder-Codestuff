@@ -8,7 +8,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+flat = true
 script = ExtResource("1_72vj0")
+direction = 1
 
 [connection signal="button_down" from="." to="." method="button_down"]
 [connection signal="button_up" from="." to="." method="button_up"]

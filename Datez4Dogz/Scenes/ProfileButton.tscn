@@ -1,16 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1ml36s2gilgm"]
+[gd_scene load_steps=5 format=3 uid="uid://c1ml36s2gilgm"]
 
-[ext_resource type="Texture2D" uid="uid://bxkaot5v6hvvm" path="res://Sprites/Icons/Accept.png" id="1_yovy5"]
+[ext_resource type="Texture2D" uid="uid://cdj50l6v286mg" path="res://Sprites/Icons/Circle100.png" id="1_bx2oi"]
 [ext_resource type="Texture2D" uid="uid://dfaqnu57p8s40" path="res://Sprites/DogPics/husky2-1.jpg" id="2_5k8b0"]
+[ext_resource type="Script" path="res://Scripts/profile_button.gd" id="2_qxone"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ts0mj"]
 
 [node name="ProfileButton" type="Button"]
 clip_children = 1
-offset_left = -83.0
-offset_top = -84.0
-offset_right = 86.0
-offset_bottom = 85.0
-icon = ExtResource("1_yovy5")
+offset_left = -54.0
+offset_top = -54.0
+offset_right = 54.0
+offset_bottom = 54.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ts0mj")
+icon = ExtResource("1_bx2oi")
 flat = true
+script = ExtResource("2_qxone")
 
 [node name="Image" type="TextureRect" parent="."]
 layout_mode = 1
@@ -25,6 +30,11 @@ offset_right = 211.5
 offset_bottom = 231.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("2_5k8b0")
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

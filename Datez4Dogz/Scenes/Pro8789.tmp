@@ -80,14 +80,15 @@ offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="About/Container"]
+[node name="Name" type="RichTextLabel" parent="About/Container"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 69.0
 grow_horizontal = 2
 theme = ExtResource("5_o150v")
-autowrap_mode = 3
+bbcode_enabled = true
+text = "[b]text[/b]"
 
 [node name="Info" type="Label" parent="About/Container"]
 layout_mode = 1
@@ -98,7 +99,7 @@ grow_horizontal = 2
 theme = ExtResource("6_ee2mv")
 autowrap_mode = 3
 
-[node name="Bio" type="Label" parent="About/Container"]
+[node name="About" type="Label" parent="About/Container"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0

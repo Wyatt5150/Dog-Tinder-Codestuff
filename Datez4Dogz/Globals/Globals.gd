@@ -16,10 +16,20 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func make_default_profiles():
+	var dog = DogProfile.new()
+	dog.name = "Doug"
+	dog.bio = "Good boi"
+	dog.gender = "Male"
+	dog.age = 3
+	dog.pictures = [load("res://Sprites/DogPics/oakley.jpg"),load("res://Sprites/DogPics/oakley2.jpg"),load("res://Sprites/DogPics/oakleyAnnieRollo.jpg")]
+	
 	var profile = UserProfile.new()
 	profile.name = "Norm El Man"
+	profile.pronouns = "Hu/Man"
+	profile.age = 28
 	profile.location = "real place, tx"
 	profile.bio = "I am a person that exist"
+	profile.dogs.append(dog)
 
 	profile.pictures = [load("res://Sprites/DogPics/husky2-1.jpg"),load("res://Sprites/DogPics/husky2-2.jpg")]
 	
