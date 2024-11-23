@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scripts/profile_view.gd" id="1_0g7d7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
-[ext_resource type="PackedScene" uid="uid://c1ml36s2gilgm" path="res://Scenes/ProfileButton.tscn" id="2_08yxv"]
+[ext_resource type="PackedScene" path="res://Scenes/ProfileButton.tscn" id="2_08yxv"]
 [ext_resource type="Texture2D" uid="uid://dfaqnu57p8s40" path="res://Sprites/DogPics/husky2-1.jpg" id="3_5hx3t"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="5_o150v"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="6_ee2mv"]

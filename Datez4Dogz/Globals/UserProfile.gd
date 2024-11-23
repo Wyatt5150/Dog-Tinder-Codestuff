@@ -17,7 +17,7 @@ var userPrefs:Dictionary = {
 # preferences relating to dogs
 var dogPrefs:Dictionary = {
 	"vaccinated": true,
-	"neutered": "", # true, false, ifSame (dogs of same sex as yours must be neutered)
+	"neutered": "", # true, false, ifDif (ifDif = must be neutered if dogs are of opposite sex)
 	"size": [], # small, medium, large (dog sizes you're okay with)
 	"activity": [] # low, medium, high ()
 }

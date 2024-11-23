@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b3e6aarkeujla"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8o4pl"]
+
+[resource]
+Button/colors/icon_pressed_color = Color(0.687215, 0.687215, 0.687215, 1)
+Button/styles/focus = SubResource("StyleBoxEmpty_8o4pl")
