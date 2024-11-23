@@ -1,5 +1,15 @@
 # profile for a human
 class_name UserProfile extends Profile
+enum RELATIONSHIPTYPE {
+	FRIEND,
+	ROMANTIC
+}
+enum NEUTEREDPREF {
+	YES,
+	NO,
+	MAYBE
+}
+	
 
 var pronouns:String
 var location:String
@@ -8,23 +18,23 @@ var dogs:Array = [] # array of dog profiles
 
 # stuff that the user is matched based on
 var userPrefs:Dictionary = {
-	"lookingFor": "", # friendship, relationship, either
+	"lookingFor": [], # array of RELATIONSHIPTYPE that user is looking for
 	"ageMin": -1,
 	"ageMax": -1,
-	"gender": [], # array of genders they're okay with
+	"gender": [], # array of GENDER they're okay with
 	"smoker":false
 }
 # preferences relating to dogs
 var dogPrefs:Dictionary = {
 	"vaccinated": true,
-	"neutered": "", # true, false, ifDif (ifDif = must be neutered if dogs are of opposite sex)
-	"size": [], # small, medium, large (dog sizes you're okay with)
-	"activity": [] # low, medium, high ()
+	"neutered": NEUTEREDPREF.YES, # NEUTEREDPREF, MAYBE = must be neutered if different sex
+	"size": [], # array of SIZE
+	"activity": [] # array of ACTIVITY
 }
 	
 # flag for default users
 var acceptedCurrent:bool
 	
 func _init() -> void:
-	profileType = "user"
+	profileType = PROFILETYPE.USER
 	pass

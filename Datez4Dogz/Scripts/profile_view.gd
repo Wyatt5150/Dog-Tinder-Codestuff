@@ -73,7 +73,7 @@ func load_info():
 	
 	var info = container.get_node("Info")
 	info.text = str(profile.age) + " - "
-	if profile.profileType == "user":
+	if profile.profileType == Profile.PROFILETYPE.USER:
 		info.text += profile.pronouns
 	else:
 		info.text += profile.gender
@@ -85,7 +85,7 @@ func load_info():
 	
 	var misc = container.get_node("Misc")
 	misc.text = ""
-	if profile.profileType == "dog":
+	if profile.profileType == Profile.PROFILETYPE.DOG:
 		if profile.vaccinated:
 			misc.text += "Vaccinated"
 		else:
@@ -96,7 +96,7 @@ func load_info():
 		if !profile.neutered:
 			misc.text += "Not "
 		
-		if profile.gender == "f":
+		if profile.gender == Profile.GENDER.FEMALE:
 			misc.text += "Spayed"
 		else:
 			misc.text += "Neutered"

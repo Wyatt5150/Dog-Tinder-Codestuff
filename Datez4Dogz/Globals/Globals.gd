@@ -121,13 +121,13 @@ func current_compatibile_with(otherUser:UserProfile):
 			notNeutered.add(dog.gender)
 	
 	match prefs["neutered"]:
-		"true":
+		UserProfile.NEUTEREDPREF.YES:
 			if !notNeutered.is_empty():
 				return false
-		"ifDif":
+		UserProfile.NEUTEREDPREF.MAYBE:
 			for dog:DogProfile in currentUser.dogs:
-				if dog.gender == "f" and notNeutered.has("m") \
-				or dog.gender == "m" and notNeutered.has("f"):
+				if dog.gender == Profile.GENDER.MALE and notNeutered.has(Profile.GENDER.FEMALE) \
+				or dog.gender == Profile.GENDER.FEMALE and notNeutered.has(Profile.GENDER.MALE):
 					return false
 					
 	return true
