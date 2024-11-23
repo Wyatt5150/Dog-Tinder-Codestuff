@@ -8,12 +8,17 @@
 
 [node name="Discover" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_f8lsh")
 
 [node name="ProfileView" parent="." instance=ExtResource("1_tibke")]
 
 [node name="Accept" type="Button" parent="."]
+layout_mode = 0
 offset_left = 268.0
 offset_top = 719.0
 offset_right = 437.0
@@ -23,6 +28,7 @@ icon = ExtResource("2_pb1tn")
 flat = true
 
 [node name="Decline" type="Button" parent="."]
+layout_mode = 0
 offset_left = 30.0
 offset_top = 714.0
 offset_right = 199.0
@@ -32,9 +38,21 @@ icon = ExtResource("3_bujnp")
 flat = true
 
 [node name="NooneFound" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 546.0
-offset_bottom = 959.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="NooneFound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="NooneFound"]
 layout_mode = 0

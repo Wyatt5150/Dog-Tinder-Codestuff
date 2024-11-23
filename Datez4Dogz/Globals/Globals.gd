@@ -20,7 +20,7 @@ func _ready() -> void:
 
 func make_default_profiles():
 	undecided.clear()
-	
+
 	var dog = DogProfile.new()
 	dog.name = "Doug"
 	dog.bio = "Good boi"
@@ -35,8 +35,22 @@ func make_default_profiles():
 	profile.location = "real place, tx"
 	profile.bio = "I am a person that exist"
 	profile.dogs.append(dog)
+	profile.acceptedCurrent = true
 
 	profile.pictures = [load("res://Sprites/DogPics/husky2-1.jpg"),load("res://Sprites/DogPics/husky2-2.jpg")]
+	
+	undecided.append(profile)
+	
+	profile = UserProfile.new()
+	profile.name = "Aper Son"
+	profile.pronouns = "They/Them"
+	profile.age = 28
+	profile.location = "real place, tx"
+	profile.bio = "I am real i swear"
+	profile.dogs.append(dog)
+	profile.acceptedCurrent = false
+
+	profile.pictures = [load("res://Sprites/DogPics/oakley.jpg"),load("res://Sprites/DogPics/oakley2.jpg")]
 	
 	undecided.append(profile)
 	pass
@@ -117,3 +131,10 @@ func current_compatibile_with(otherUser:UserProfile):
 					return false
 					
 	return true
+
+func print_user_lists():
+	print("matched: " + str(matched))
+	print("accepted: " + str(accepted))
+	print("declined: " + str(declined))
+	print("undecided: " + str(undecided))
+	print("notPrefered: " + str(notPrefered))

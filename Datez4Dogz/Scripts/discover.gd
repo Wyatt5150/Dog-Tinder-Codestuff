@@ -13,7 +13,11 @@ func load_user():
 		$ProfileView.load_user(Globals.undecided[0])
 
 func _on_accept_pressed() -> void:
-	Globals.accept_user(Globals.undecided[0])
+	Globals.accept_user(0)
+	Globals.print_user_lists()
+	load_user()
 
 func _on_decline_pressed() -> void:
-	Globals.decline_user(Globals.undecided[0])
+	Globals.decline_user(0)
+	Globals.print_user_lists()
+	load_user()
