@@ -1,11 +1,199 @@
-[gd_scene load_steps=2 format=3 uid="uid://5kr7gpwa4bmm"]
+[gd_scene load_steps=10 format=3 uid="uid://5kr7gpwa4bmm"]
 
+[ext_resource type="Script" path="res://Scripts/edit_user_profile.gd" id="1_5ynhn"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_et03q"]
+[ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="2_0peoq"]
+[ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_5c1me"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_jpuv0"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_bsm7x"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_fet4r"]
 
-[node name="EditUserProfile" type="Node2D"]
+[sub_resource type="Resource" id="Resource_y7kqq"]
+script = ExtResource("3_bsm7x")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
-[node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 23.0
+[sub_resource type="Resource" id="Resource_vhykd"]
+script = ExtResource("3_bsm7x")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[node name="EditUserProfile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5ynhn")
+
+[node name="Background Color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.462291, 0.462291, 0.462291, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header" type="Panel" parent="VBoxContainer"]
+show_behind_parent = true
+custom_minimum_size = Vector2(0, 96)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Header" type="Label" parent="VBoxContainer/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
 theme = ExtResource("1_et03q")
-text = "EDIT USER PROFILE"
+text = "EDIT PROFILE"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Content" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("2_jpuv0")
+wheel_scroll_damper = SubResource("Resource_y7kqq")
+dragging_scroll_damper = SubResource("Resource_vhykd")
+allow_horizontal_scroll = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Content"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 0
+
+[node name="LoginSection" type="Panel" parent="VBoxContainer/Content/VBoxContainer"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_fet4r")
+
+[node name="Label" type="Label" parent="VBoxContainer/Content/VBoxContainer/LoginSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Login Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Username" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Username"
+placeholder_text = "Enter  A Username!"
+display_subtext = false
+display_error_text = false
+invalid_text = "Username cannot be blank"
+
+[node name="Password" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Password"
+placeholder_text = "Enter A Password!"
+secret = true
+subtext = "Password must be at least 8 characters long and contain uppercase, lowercase, and numeric values."
+display_error_text = false
+invalid_text = "Invalid Password"
+use_regex = true
+regex_key = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$"
+
+[node name="NameSection" type="Panel" parent="VBoxContainer/Content/VBoxContainer"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_fet4r")
+
+[node name="Label" type="Label" parent="VBoxContainer/Content/VBoxContainer/NameSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Name Info"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FirstName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+label_text = "First"
+placeholder_text = "Enter Your First Name!"
+display_subtext = false
+display_error_text = false
+invalid_text = "First Name cannot be blank"
+
+[node name="PreferredName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Preferred"
+placeholder_text = "Enter Your Preferred Name!"
+display_subtext = false
+display_error_text = false
+
+[node name="LastName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Last"
+placeholder_text = "Enter Your Last Name!"
+display_subtext = false
+display_error_text = false
+
+[node name="NavigationButtons" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("2_0peoq")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/NavigationButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Back" type="Button" parent="VBoxContainer/NavigationButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "BACK"
+
+[node name="Save" type="Button" parent="VBoxContainer/NavigationButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "CONTINUE"
+
+[connection signal="pressed" from="VBoxContainer/NavigationButtons/VBoxContainer/Back" to="." method="BackButton"]
+[connection signal="pressed" from="VBoxContainer/NavigationButtons/VBoxContainer/Save" to="." method="Submit"]
