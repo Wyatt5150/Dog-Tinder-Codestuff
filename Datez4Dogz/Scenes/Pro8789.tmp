@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5pgeiq6wwn7x"]
+[gd_scene load_steps=11 format=3 uid="uid://b5pgeiq6wwn7x"]
 
 [ext_resource type="Script" path="res://Scripts/profile_view.gd" id="1_0g7d7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
 [ext_resource type="PackedScene" uid="uid://c1ml36s2gilgm" path="res://Scenes/ProfileButton.tscn" id="2_08yxv"]
 [ext_resource type="Texture2D" uid="uid://dfaqnu57p8s40" path="res://Sprites/DogPics/husky2-1.jpg" id="3_5hx3t"]
+[ext_resource type="Texture2D" uid="uid://t0cc7i4fsvh1" path="res://icon.svg" id="4_htdu4"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="5_o150v"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="6_ee2mv"]
 [ext_resource type="PackedScene" uid="uid://cfttifbxiujqg" path="res://Scenes/TouchScroll.tscn" id="8_royy3"]
@@ -18,7 +19,6 @@ script = ExtResource("1_0g7d7")
 profileButton = ExtResource("2_08yxv")
 
 [node name="Label" type="Label" parent="."]
-
 visible = false
 layout_mode = 0
 offset_right = 40.0
@@ -34,41 +34,31 @@ offset_right = 525.0
 offset_bottom = 558.0
 color = Color(0, 0, 0, 1)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="UserImageDisplay"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Prev" type="Button" parent="UserImageDisplay/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 48
-text = "<"
-flat = true
-
-[node name="UserImage" type="TextureRect" parent="UserImageDisplay/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
+[node name="UserImage" type="TextureRect" parent="UserImageDisplay"]
+layout_mode = 0
+offset_right = 423.0
+offset_bottom = 462.0
 texture = ExtResource("3_5hx3t")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Next" type="Button" parent="UserImageDisplay/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 48
-text = ">"
-flat = true
+[node name="Prev" type="Button" parent="UserImageDisplay"]
+layout_mode = 0
+offset_left = -27.0
+offset_top = 168.0
+offset_right = 109.0
+offset_bottom = 304.0
+icon = ExtResource("4_htdu4")
+
+[node name="Next" type="Button" parent="UserImageDisplay"]
+layout_mode = 0
+offset_left = 434.0
+offset_top = 159.0
+offset_right = 570.0
+offset_bottom = 295.0
+icon = ExtResource("4_htdu4")
 
 [node name="About" type="ColorRect" parent="."]
-z_index = 1
 layout_mode = 0
 offset_left = 22.0
 offset_top = 584.0
@@ -90,14 +80,15 @@ offset_bottom = 500.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Name" type="Label" parent="About/Container"]
+[node name="Name" type="RichTextLabel" parent="About/Container"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 69.0
 grow_horizontal = 2
 theme = ExtResource("5_o150v")
-autowrap_mode = 3
+bbcode_enabled = true
+text = "[b]text[/b]"
 
 [node name="Info" type="Label" parent="About/Container"]
 layout_mode = 1
@@ -108,16 +99,7 @@ grow_horizontal = 2
 theme = ExtResource("6_ee2mv")
 autowrap_mode = 3
 
-[node name="Bio" type="Label" parent="About/Container"]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 42.0
-grow_horizontal = 2
-theme = ExtResource("6_ee2mv")
-autowrap_mode = 3
-
-[node name="Misc" type="Label" parent="About/Container"]
+[node name="About" type="Label" parent="About/Container"]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -147,5 +129,5 @@ layout_mode = 1
 max = 200.0
 direction = 0
 
-[connection signal="button_down" from="UserImageDisplay/HBoxContainer/Prev" to="." method="change_image" binds= [-1]]
-[connection signal="button_down" from="UserImageDisplay/HBoxContainer/Next" to="." method="change_image" binds= [1]]
+[connection signal="button_down" from="UserImageDisplay/Prev" to="." method="change_image" binds= [-1]]
+[connection signal="button_down" from="UserImageDisplay/Next" to="." method="change_image" binds= [1]]

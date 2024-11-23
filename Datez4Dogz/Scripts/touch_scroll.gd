@@ -42,7 +42,6 @@ func _process(delta: float) -> void:
 			set_parent_pos(parentPos+vel*delta)
 			vel = move_toward(vel, 0, acc*delta)
 	
-
 func button_down() -> void:
 	prev = get_mouse_pos()
 	holding = true
