@@ -48,13 +48,19 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Header" type="Panel" parent="VBoxContainer"]
-show_behind_parent = true
-custom_minimum_size = Vector2(0, 96)
+[node name="Header2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
-size_flags_vertical = 0
+size_flags_vertical = 1
+theme = ExtResource("1_et03q")
+theme_override_font_sizes/font_size = 48
+text = "CREATE PROFILE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Header" type="Label" parent="VBoxContainer/Header"]
+[node name="Header" type="Panel" parent="VBoxContainer/Header2"]
+show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,10 +68,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
-theme = ExtResource("1_et03q")
-text = "EDIT PROFILE"
-horizontal_alignment = 1
-autowrap_mode = 3
 
 [node name="Content" type="ScrollContainer" parent="VBoxContainer"]
 layout_mode = 2
