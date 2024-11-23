@@ -18,6 +18,7 @@ script = ExtResource("1_0g7d7")
 profileButton = ExtResource("2_08yxv")
 
 [node name="Label" type="Label" parent="."]
+
 visible = false
 layout_mode = 0
 offset_right = 40.0
