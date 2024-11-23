@@ -3,17 +3,13 @@ extends Node
 enum SCENES {
 	MAIN,
 	SETUP,
-	DISCOVER,
-	MATCHES,
-	SETTINGS
+	NAVIGATION
 }
 
 const SCENES_MAP = {
 	SCENES.MAIN : "res://Scenes/MainMenu.tscn",
 	SCENES.SETUP : "res://Scenes/EditUserProfile.tscn",
-	SCENES.DISCOVER : "",
-	SCENES.MATCHES : "",
-	SCENES.SETTINGS : "res://Scenes/Settings.tscn"
+	SCENES.NAVIGATION : "res://Scenes/navigation.tscn"
 }
 
 func Change_Scene(scene : SCENES) -> void:
