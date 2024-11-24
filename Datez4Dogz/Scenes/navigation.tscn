@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dg71lsxq81m4l"]
+[gd_scene load_steps=7 format=3 uid="uid://dg71lsxq81m4l"]
 
 [ext_resource type="Script" path="res://Scripts/navigation.gd" id="1_37e67"]
 [ext_resource type="PackedScene" uid="uid://ddaohhoap1r2e" path="res://Scenes/Discover.tscn" id="1_djr2o"]
 [ext_resource type="PackedScene" uid="uid://ch1gnpeuvoa7p" path="res://Scenes/ViewMatches.tscn" id="3_aor3m"]
 [ext_resource type="PackedScene" uid="uid://mnjok4xriarq" path="res://Scenes/Settings.tscn" id="4_8bo8h"]
 [ext_resource type="PackedScene" uid="uid://5kr7gpwa4bmm" path="res://Scenes/EditUserProfile.tscn" id="5_st7pe"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k3pkp"]
 
 [node name="Navigation" type="Control"]
 layout_mode = 3
@@ -23,6 +25,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/icon_max_width = 50
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_k3pkp")
 current_tab = 0
 tabs_position = 1
 
