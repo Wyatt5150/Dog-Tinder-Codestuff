@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5pgeiq6wwn7x"]
+[gd_scene load_steps=14 format=3 uid="uid://b5pgeiq6wwn7x"]
 
 [ext_resource type="Script" path="res://Scripts/profile_view.gd" id="1_0g7d7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
@@ -7,9 +7,23 @@
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="5_o150v"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="6_ee2mv"]
 [ext_resource type="PackedScene" uid="uid://cfttifbxiujqg" path="res://Scenes/TouchScroll.tscn" id="8_royy3"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="9_qra02"]
 [ext_resource type="Texture2D" uid="uid://cdj50l6v286mg" path="res://Sprites/Icons/Circle100.png" id="9_vk6r3"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="10_vxf6x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d77at"]
+
+[sub_resource type="Resource" id="Resource_12w4p"]
+script = ExtResource("10_vxf6x")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_q6irv"]
+script = ExtResource("10_vxf6x")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [node name="ProfileView" type="Control"]
 layout_mode = 3
@@ -132,7 +146,7 @@ autowrap_mode = 3
 layout_mode = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d77at")
 
-[node name="ProfileSelect" type="Control" parent="."]
+[node name="ProfileSelectOld" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_left = 1.0
@@ -140,14 +154,25 @@ offset_top = 1.0
 offset_right = 538.0
 offset_bottom = 103.0
 
-[node name="SelectionIndicator" type="Sprite2D" parent="ProfileSelect"]
+[node name="SelectionIndicator" type="Sprite2D" parent="ProfileSelectOld"]
 position = Vector2(636, 14)
 texture = ExtResource("9_vk6r3")
 
-[node name="TouchScroll" parent="ProfileSelect" instance=ExtResource("8_royy3")]
+[node name="TouchScroll" parent="ProfileSelectOld" instance=ExtResource("8_royy3")]
 layout_mode = 1
 max = 200.0
 direction = 0
+
+[node name="ProfileSelect" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_qra02")
+wheel_scroll_damper = SubResource("Resource_12w4p")
+dragging_scroll_damper = SubResource("Resource_q6irv")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ProfileSelect"]
+layout_mode = 2
 
 [connection signal="button_down" from="UserImageDisplay/HBoxContainer/Prev" to="." method="change_image" binds= [-1]]
 [connection signal="button_down" from="UserImageDisplay/HBoxContainer/Next" to="." method="change_image" binds= [1]]
