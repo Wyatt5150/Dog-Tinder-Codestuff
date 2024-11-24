@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch1gnpeuvoa7p"]
+[gd_scene load_steps=3 format=3 uid="uid://ch1gnpeuvoa7p"]
 
 [ext_resource type="Script" path="res://Scripts/view_matches.gd" id="1_4xnll"]
 [ext_resource type="PackedScene" uid="uid://dkx81rp7ww40v" path="res://Scenes/ProfileListItem.tscn" id="2_klrj8"]
-[ext_resource type="PackedScene" uid="uid://b5pgeiq6wwn7x" path="res://Scenes/ProfileView.tscn" id="3_b1ogs"]
 
 [node name="ViewMatches" type="Control"]
 layout_mode = 3
@@ -15,7 +14,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_4xnll")
 profileListItem = ExtResource("2_klrj8")
-profileView = ExtResource("3_b1ogs")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

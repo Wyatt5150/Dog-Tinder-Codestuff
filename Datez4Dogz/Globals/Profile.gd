@@ -32,3 +32,12 @@ var pictures:Array = []
 	
 func _init() -> void:
 	pass
+
+func gender_string():
+	match gender:
+		GENDER.FEMALE:
+			return "female"
+		GENDER.MALE:
+			return "male"
+		GENDER.NONBINARY:
+			return "nonbinary"

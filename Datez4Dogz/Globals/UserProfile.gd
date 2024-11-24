@@ -38,3 +38,12 @@ var acceptedCurrent:bool
 func _init() -> void:
 	profileType = PROFILETYPE.USER
 	pass
+
+func looking_for_string():
+	var lookingFor = ""
+	if userPrefs["lookingFor"].has(RELATIONSHIPTYPE.FRIEND):
+		lookingFor += "Friendship"
+	if userPrefs["lookingFor"].has(RELATIONSHIPTYPE.ROMANTIC):
+		if lookingFor != "":
+			lookingFor +=" or "
+		lookingFor += "Relationship"

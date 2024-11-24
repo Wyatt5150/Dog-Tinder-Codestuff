@@ -45,7 +45,6 @@ func _ready() -> void:
 	
 	load_user(Globals.undecided[0])
 
-	
 func load_user(p:UserProfile):
 	# call upon starting this scene or to change user
 	load_profile_buttons(p)
@@ -76,7 +75,7 @@ func load_info():
 	if profile.profileType == Profile.PROFILETYPE.USER:
 		info.text += profile.pronouns
 	else:
-		info.text += profile.gender
+		info.text += profile.gender_string()
 	info.position.y = username.position.y + get_label_height(username) + verPadding
 	
 	var bio = container.get_node("Bio")
@@ -147,6 +146,5 @@ func load_profile_buttons(p:UserProfile):
 		but.set_profile(dog)
 		but.clicked.connect(load_profile.bind(but.position+Vector2(half,half)))
 	
-
 func get_label_height(label):
 	return label.get_line_count()*(label.get_line_height()+label.get_theme_constant("line_spacing"))

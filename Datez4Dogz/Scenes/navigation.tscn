@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dg71lsxq81m4l"]
+[gd_scene load_steps=5 format=3 uid="uid://dg71lsxq81m4l"]
 
+[ext_resource type="Script" path="res://Scripts/navigation.gd" id="1_37e67"]
 [ext_resource type="PackedScene" uid="uid://ddaohhoap1r2e" path="res://Scenes/Discover.tscn" id="1_djr2o"]
 [ext_resource type="PackedScene" uid="uid://ch1gnpeuvoa7p" path="res://Scenes/ViewMatches.tscn" id="3_aor3m"]
 [ext_resource type="PackedScene" uid="uid://mnjok4xriarq" path="res://Scenes/Settings.tscn" id="4_8bo8h"]
@@ -11,6 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_37e67")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
@@ -19,6 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/icon_max_width = 50
 current_tab = 0
 tabs_position = 1
 
@@ -28,7 +31,7 @@ clip_contents = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="View Matches" parent="TabContainer" instance=ExtResource("3_aor3m")]
+[node name="ViewMatches" parent="TabContainer" instance=ExtResource("3_aor3m")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -39,3 +42,5 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]

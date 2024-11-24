@@ -7,7 +7,7 @@ signal clicked(profile)
 
 func set_profile(p:Profile):
 	profile = p
-	$Image.texture = profile.pictures[0]
+	$ProfileIcon.set_profile(p)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
