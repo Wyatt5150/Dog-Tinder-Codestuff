@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dg71lsxq81m4l"]
+[gd_scene load_steps=6 format=3 uid="uid://dg71lsxq81m4l"]
 
 [ext_resource type="Script" path="res://Scripts/navigation.gd" id="1_37e67"]
 [ext_resource type="PackedScene" uid="uid://ddaohhoap1r2e" path="res://Scenes/Discover.tscn" id="1_djr2o"]
 [ext_resource type="PackedScene" uid="uid://ch1gnpeuvoa7p" path="res://Scenes/ViewMatches.tscn" id="3_aor3m"]
 [ext_resource type="PackedScene" uid="uid://mnjok4xriarq" path="res://Scenes/Settings.tscn" id="4_8bo8h"]
+[ext_resource type="PackedScene" uid="uid://5kr7gpwa4bmm" path="res://Scenes/EditUserProfile.tscn" id="5_st7pe"]
 
 [node name="Navigation" type="Control"]
 layout_mode = 3
@@ -31,7 +32,7 @@ clip_contents = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="ViewMatches" parent="TabContainer" instance=ExtResource("3_aor3m")]
+[node name="View Matches" parent="TabContainer" instance=ExtResource("3_aor3m")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
@@ -42,5 +43,10 @@ unique_name_in_owner = true
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
+
+[node name="EditUserProfile" parent="TabContainer" instance=ExtResource("5_st7pe")]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 3
 
 [connection signal="tab_changed" from="TabContainer" to="." method="_on_tab_container_tab_changed"]

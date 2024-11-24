@@ -1,7 +1,9 @@
 extends Control
 
 @export var profileListItem:PackedScene
-@export var profileView:PackedScene
+
+func _ready():
+	_on_back_button_down()
 
 func load_lists():
 	var parents = [$VBoxContainer/Matched, $VBoxContainer/Pending]
@@ -24,4 +26,14 @@ func load_lists():
 			item.button_down.connect(load_profile.bind(profile))
 		
 func load_profile(profile:UserProfile):
+	$ProfileView.load_user(profile)
+	$ProfileView.visible = true
+	$ProfileView.mouse_filter = MOUSE_FILTER_STOP
 	pass
+
+
+func _on_back_button_down() -> void:
+	var obj : Control
+	$ProfileView.visible = false
+	$ProfileView.mouse_filter = MOUSE_FILTER_IGNORE
+	pass # Replace with function body.
