@@ -1,15 +1,18 @@
 extends Control
-
+const tabIconNames = ["Discover", "Message", "Settings", "Profile"]
 func _ready() -> void:
-	var tabs:TabContainer = $TabContainer
-	tabs.set_tab_icon(0, load("res://Sprites/Icons/Discover.png"))
-	tabs.set_tab_icon(1, load("res://Sprites/Icons/Matches.png"))
-	tabs.set_tab_icon(2, load("res://Sprites/Icons/Settings.png"))
-	tabs.set_tab_icon(3, load("res://Sprites/Icons/Profile.png"))
 	for i in range($TabContainer.get_tab_count()):
 		$TabContainer.set_tab_title(i, "")
+	_on_tab_container_tab_changed(0)
 
 func _on_tab_container_tab_changed(tab: int) -> void:
+	reset_icons()
+	$TabContainer.set_tab_icon(tab, load("res://Sprites/Icons/"+tabIconNames[tab]+".png"))
 	match tab:
 		1:
 			$"TabContainer/View Matches".load_lists()
+
+func reset_icons():
+	var tabs:TabContainer = $TabContainer
+	for i in range(tabs.get_tab_count()):
+		tabs.set_tab_icon(i, load("res://Sprites/Icons/"+tabIconNames[i]+"Outline.png"))
