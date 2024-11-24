@@ -10,6 +10,7 @@ offset_left = -54.0
 offset_top = -54.0
 offset_right = 55.0
 offset_bottom = 56.0
+mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ts0mj")
 flat = true
 script = ExtResource("2_qxone")

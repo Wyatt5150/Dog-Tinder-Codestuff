@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 	if validClick and clickPos.distance_to(get_global_mouse_position()) > 10:
 		validClick = false
 
-
 func _on_button_down() -> void:
 	clickPos = get_global_mouse_position()
 	validClick = true

@@ -49,12 +49,14 @@ func load_user(p:UserProfile):
 	# call upon starting this scene or to change user
 	load_profile_buttons(p)
 
-func load_profile(p:Profile, butPos:Vector2):
+func load_profile(p:Profile, selected):
 	if p == profile:
 		return
 	profile = p
 	load_info()
-	$ProfileSelect/SelectionIndicator.position = butPos
+	
+	%SelectionIndicator.position = Vector2(0,0)
+	%SelectionIndicator.reparent(selected, false)
 	
 func load_info():
 	# load image display stuff
@@ -105,7 +107,7 @@ func load_info():
 	# determine about container size
 	var viewportHeight = get_viewport().get_visible_rect().size.y
 	about.size.y = max(bio.position.y + get_label_height(bio) + verPadding*2 + 100,
-		viewportHeight - verPadding*2 - $ProfileSelect/SelectionIndicator.scale.x*100)
+		viewportHeight - verPadding*2 - %SelectionIndicator.scale.x*100)
 	
 	about.position.y = $About/TouchScroll.max
 	$About/TouchScroll.min = -(about.size.y - viewportHeight)
@@ -126,25 +128,21 @@ func change_image(incr: int) -> void:
 	pass
 
 func load_profile_buttons(p:UserProfile):
-	var container = $ProfileSelect
 	# button for user
-	var but:Button = profileButton.instantiate()
-	var half = but.size.x/2
-	container.add_child(but)
-	but.position = Vector2(5,5)
-	var xPos = but.position.x
-	but.set_profile(p)
-	but.clicked.connect(load_profile.bind(but.position+Vector2(half,half)))
-	$ProfileSelect/SelectionIndicator.scale = Vector2((but.size.x + 10) / 100,(but.size.x + 10) / 100)
-	load_profile(p, but.position+Vector2(half,half))
+	var but:Button = make_profile_button(p)
+	load_profile(p, but)
 	# button for each dog
 	for dog in p.dogs:
-		but = profileButton.instantiate()
-		xPos += but.size.x+5
-		container.add_child(but)
-		but.position = Vector2(xPos,5)
-		but.set_profile(dog)
-		but.clicked.connect(load_profile.bind(but.position+Vector2(half,half)))
-	
+		make_profile_button(dog)
+
+func make_profile_button(p:Profile):
+	var but:Button = profileButton.instantiate()
+	but.set_profile(p)
+	but.custom_minimum_size.x = 100
+	$ProfileSelect/HBoxContainer.add_child(but)
+	var half = but.size.x/2
+	but.clicked.connect(load_profile.bind(but))
+	return but
+
 func get_label_height(label):
 	return label.get_line_count()*(label.get_line_height()+label.get_theme_constant("line_spacing"))

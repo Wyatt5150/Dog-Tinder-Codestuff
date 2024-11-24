@@ -146,33 +146,25 @@ autowrap_mode = 3
 layout_mode = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_d77at")
 
-[node name="ProfileSelectOld" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 1.0
-offset_top = 1.0
-offset_right = 538.0
-offset_bottom = 103.0
-
-[node name="SelectionIndicator" type="Sprite2D" parent="ProfileSelectOld"]
-position = Vector2(636, 14)
+[node name="SelectionIndicator" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(960, 43)
 texture = ExtResource("9_vk6r3")
-
-[node name="TouchScroll" parent="ProfileSelectOld" instance=ExtResource("8_royy3")]
-layout_mode = 1
-max = 200.0
-direction = 0
 
 [node name="ProfileSelect" type="ScrollContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 542.0
+offset_bottom = 123.0
 script = ExtResource("9_qra02")
 wheel_scroll_damper = SubResource("Resource_12w4p")
 dragging_scroll_damper = SubResource("Resource_q6irv")
+allow_vertical_scroll = false
+hide_scrollbar_over_time = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ProfileSelect"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [connection signal="button_down" from="UserImageDisplay/HBoxContainer/Prev" to="." method="change_image" binds= [-1]]
 [connection signal="button_down" from="UserImageDisplay/HBoxContainer/Next" to="." method="change_image" binds= [1]]
