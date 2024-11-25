@@ -5,6 +5,9 @@ var validClick:bool
 
 signal clicked(profile)
 
+func _ready() -> void:
+	deselect()
+
 func set_profile(p:Profile):
 	profile = p
 	$ProfileIcon.set_profile(p)
@@ -22,3 +25,9 @@ func _on_button_up() -> void:
 	if validClick:
 		emit_signal("clicked",profile)
 		validClick = false
+
+func select():
+	$Selected.visible = true
+
+func deselect():
+	$Selected.visible = false

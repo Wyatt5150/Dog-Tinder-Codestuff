@@ -1,8 +1,5 @@
 extends Control
 
-func _ready() -> void:
-	load_user()
-
 func load_user():
 	if Globals.undecided.is_empty():
 		$NooneFound.mouse_filter = MOUSE_FILTER_STOP

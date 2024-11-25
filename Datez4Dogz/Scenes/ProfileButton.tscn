@@ -1,29 +1,40 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1ml36s2gilgm"]
+[gd_scene load_steps=5 format=3 uid="uid://c1ml36s2gilgm"]
 
 [ext_resource type="Script" path="res://Scripts/profile_button.gd" id="2_qxone"]
+[ext_resource type="Texture2D" uid="uid://cdj50l6v286mg" path="res://Sprites/Icons/Circle100.png" id="3_vf7q4"]
 [ext_resource type="PackedScene" uid="uid://dk4afp4ag2mws" path="res://Scenes/ProfileIcon.tscn" id="3_vgogv"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ts0mj"]
 
 [node name="ProfileButton" type="Button"]
-offset_left = -54.0
-offset_top = -54.0
+offset_left = -55.0
+offset_top = -55.0
 offset_right = 55.0
-offset_bottom = 56.0
+offset_bottom = 55.0
 mouse_filter = 1
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ts0mj")
 flat = true
 script = ExtResource("2_qxone")
 
 [node name="ProfileIcon" parent="." instance=ExtResource("3_vgogv")]
+z_index = 1
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -50.0
+offset_right = 50.0
+offset_bottom = 50.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Selected" type="Sprite2D" parent="."]
+position = Vector2(55, 55)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_vf7q4")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]
