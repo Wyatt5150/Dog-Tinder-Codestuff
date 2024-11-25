@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkx81rp7ww40v"]
+[gd_scene load_steps=5 format=3 uid="uid://dkx81rp7ww40v"]
 
 [ext_resource type="Script" path="res://Scripts/profile_list_item.gd" id="1_fhlx2"]
 [ext_resource type="PackedScene" uid="uid://dk4afp4ag2mws" path="res://Scenes/ProfileIcon.tscn" id="2_weu7t"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_hsdoo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_swcex"]
+content_margin_left = 16.0
 
 [node name="ProfileListItem" type="Button"]
 anchors_preset = 15
@@ -23,9 +26,15 @@ grow_vertical = 2
 
 [node name="ProfileIcon" parent="Container" instance=ExtResource("2_weu7t")]
 layout_mode = 2
+stretch_mode = 3
 
 [node name="Name" type="Label" parent="Container"]
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
 theme = ExtResource("3_hsdoo")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_swcex")
 text = "Name"
+vertical_alignment = 1
+text_overrun_behavior = 3

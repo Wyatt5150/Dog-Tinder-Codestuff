@@ -203,6 +203,10 @@ text = "About Your Dogs
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SettingPanel" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
+layout_mode = 2
+mouse_filter = 1
+
 [node name="Preferences" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)

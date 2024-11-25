@@ -63,7 +63,7 @@ class_name SettingPanel
 		regex_custom = new_val
 @export var regex_invalid_message : String = "Invalid Input."
 
-var validate_regex : RegEx
+var validate_regex : RegEx = RegEx.new()
 enum REGEX_KEYS {
 	NONE,
 	ALPHANUMERIC,

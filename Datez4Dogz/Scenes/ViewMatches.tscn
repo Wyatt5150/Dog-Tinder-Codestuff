@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://ch1gnpeuvoa7p"]
+[gd_scene load_steps=5 format=3 uid="uid://ch1gnpeuvoa7p"]
 
 [ext_resource type="Script" path="res://Scripts/view_matches.gd" id="1_4xnll"]
 [ext_resource type="PackedScene" uid="uid://dkx81rp7ww40v" path="res://Scenes/ProfileListItem.tscn" id="2_klrj8"]
 [ext_resource type="PackedScene" uid="uid://b5pgeiq6wwn7x" path="res://Scenes/ProfileView.tscn" id="3_b1ogs"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="4_pb5sx"]
 
 [node name="ViewMatches" type="Control"]
+clip_contents = true
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +18,7 @@ size_flags_vertical = 3
 script = ExtResource("1_4xnll")
 profileListItem = ExtResource("2_klrj8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="Matched" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,20 +26,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Matched" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="Pending" type="VBoxContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
 [node name="ProfileView" parent="." instance=ExtResource("3_b1ogs")]
 layout_mode = 1
 
-[node name="Back" type="Button" parent="ProfileView"]
-layout_mode = 0
-offset_right = 70.0
-offset_bottom = 58.0
+[node name="Back" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -74.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("4_pb5sx")
+text = "Back"
 
-[connection signal="button_down" from="ProfileView/Back" to="." method="_on_back_button_down"]
+[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]

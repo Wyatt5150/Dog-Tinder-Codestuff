@@ -69,7 +69,7 @@ func load_info():
 	
 	var info = container.get_node("Info")
 	info.text = str(profile.age) + " - "
-	if profile.profileType == Profile.PROFILETYPE.USER:
+	if profile is UserProfile:
 		info.text += profile.pronouns
 	else:
 		info.text += profile.gender_string()

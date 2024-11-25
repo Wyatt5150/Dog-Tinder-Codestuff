@@ -18,12 +18,6 @@ enum ACTIVITY {
 	MEDIUM,
 	LOW
 }
-enum PROFILETYPE {
-	DOG,
-	USER
-}
-
-var profileType:PROFILETYPE
 
 var name:String = ""
 var bio:String = "" # brief description about user/dog

@@ -6,9 +6,7 @@ var neutered:bool
 var breed:String
 var size:SIZE
 var activity:ACTIVITY
-	
-func _init() -> void:
-	profileType = PROFILETYPE.DOG
+
 
 func size_string():
 	match size:
