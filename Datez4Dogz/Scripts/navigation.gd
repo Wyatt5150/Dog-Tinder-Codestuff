@@ -12,7 +12,8 @@ func _on_tab_container_tab_changed(tab: int) -> void:
 		0:
 			$TabContainer/Discover.load_user()
 		1:
-			$"TabContainer/View Matches".load_lists()
+			$TabContainer/ViewMatches.load_list()
+			$TabContainer/ViewMatches._on_back_button_down()
 
 func reset_icons():
 	var tabs:TabContainer = $TabContainer

@@ -39,6 +39,7 @@ bg_color = Color(0.1008, 0.121053, 0.14, 1)
 border_width_top = 4
 
 [resource]
+Button/font_sizes/font_size = 30
 Label/font_sizes/font_size = 30
 LineEdit/styles/focus = SubResource("StyleBoxFlat_pqpk6")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_x2c6h")

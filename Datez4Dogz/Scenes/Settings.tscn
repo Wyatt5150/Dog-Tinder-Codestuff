@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://mnjok4xriarq"]
+[gd_scene load_steps=7 format=3 uid="uid://mnjok4xriarq"]
 
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_bj7et"]
 [ext_resource type="Script" path="res://Scripts/settings.gd" id="1_fn5ok"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_bpsm8"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="3_uid4a"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oufbr"]
@@ -19,36 +20,51 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_fn5ok")
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 96.0
-grow_horizontal = 2
-theme = ExtResource("1_bj7et")
-text = "SETTINGS"
-horizontal_alignment = 1
-
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -325.0
-offset_bottom = -221.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Text Size" type="Label" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_bj7et")
+text = "Settings"
+horizontal_alignment = 1
+
+[node name="Note" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+theme = ExtResource("3_bpsm8")
+text = "*More settings will be added in the future"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Text Size" type="Label" parent="VBoxContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("3_uid4a")
 text = "Text Size"
 
-[node name="TextSize" type="HBoxContainer" parent="VBoxContainer"]
+[node name="TextSize" type="HBoxContainer" parent="VBoxContainer/ColorRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="SmallText" type="CheckBox" parent="VBoxContainer/TextSize"]
+[node name="SmallText" type="CheckBox" parent="VBoxContainer/ColorRect/VBoxContainer/TextSize"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -56,15 +72,16 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_oufbr")
 button_group = SubResource("ButtonGroup_aj8r8")
 text = "Small"
 
-[node name="MediumText" type="CheckBox" parent="VBoxContainer/TextSize"]
+[node name="MediumText" type="CheckBox" parent="VBoxContainer/ColorRect/VBoxContainer/TextSize"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/focus = SubResource("StyleBoxEmpty_oufbr")
+button_pressed = true
 button_group = SubResource("ButtonGroup_aj8r8")
 text = "Medium"
 
-[node name="LargeText" type="CheckBox" parent="VBoxContainer/TextSize"]
+[node name="LargeText" type="CheckBox" parent="VBoxContainer/ColorRect/VBoxContainer/TextSize"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
@@ -72,6 +89,6 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_oufbr")
 button_group = SubResource("ButtonGroup_aj8r8")
 text = "Large"
 
-[connection signal="button_down" from="VBoxContainer/TextSize/SmallText" to="." method="_change_text_size" binds= ["small"]]
-[connection signal="button_down" from="VBoxContainer/TextSize/MediumText" to="." method="_change_text_size" binds= ["medium"]]
-[connection signal="button_down" from="VBoxContainer/TextSize/LargeText" to="." method="_change_text_size" binds= ["large"]]
+[connection signal="button_down" from="VBoxContainer/ColorRect/VBoxContainer/TextSize/SmallText" to="." method="_change_text_size" binds= ["small"]]
+[connection signal="button_down" from="VBoxContainer/ColorRect/VBoxContainer/TextSize/MediumText" to="." method="_change_text_size" binds= ["medium"]]
+[connection signal="button_down" from="VBoxContainer/ColorRect/VBoxContainer/TextSize/LargeText" to="." method="_change_text_size" binds= ["large"]]

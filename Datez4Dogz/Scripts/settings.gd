@@ -10,6 +10,7 @@ func _ready():
 	%SmallText.add_theme_font_size_override("font_size", sizes["small"][2])
 	%MediumText.add_theme_font_size_override("font_size", sizes["medium"][2])
 	%LargeText.add_theme_font_size_override("font_size", sizes["large"][2])
+	_change_text_size("medium")
 
 func _change_text_size(newSize: String) -> void:
 	var title:Theme = load("res://Themes/BigHeaderTheme.tres")

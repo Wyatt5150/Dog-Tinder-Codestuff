@@ -1,9 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://ch1gnpeuvoa7p"]
+[gd_scene load_steps=10 format=3 uid="uid://ch1gnpeuvoa7p"]
 
 [ext_resource type="Script" path="res://Scripts/view_matches.gd" id="1_4xnll"]
 [ext_resource type="PackedScene" uid="uid://dkx81rp7ww40v" path="res://Scenes/ProfileListItem.tscn" id="2_klrj8"]
+[ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="3_0aop6"]
 [ext_resource type="PackedScene" uid="uid://b5pgeiq6wwn7x" path="res://Scenes/ProfileView.tscn" id="3_b1ogs"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="4_pb5sx"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="4_yppdx"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="5_wteu6"]
+
+[sub_resource type="Resource" id="Resource_h8d1k"]
+script = ExtResource("5_wteu6")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_ay336"]
+script = ExtResource("5_wteu6")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
 
 [node name="ViewMatches" type="Control"]
 clip_contents = true
@@ -18,7 +33,7 @@ size_flags_vertical = 3
 script = ExtResource("1_4xnll")
 profileListItem = ExtResource("2_klrj8")
 
-[node name="Matched" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,10 +41,51 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("3_0aop6")
+text = "Matches"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Note" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("4_pb5sx")
+text = "*Messaging will be added in the future"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_yppdx")
+wheel_scroll_damper = SubResource("Resource_h8d1k")
+dragging_scroll_damper = SubResource("Resource_ay336")
+
+[node name="MatchList" type="VBoxContainer" parent="VBoxContainer/ColorRect/SmoothScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="ProfileView" parent="." instance=ExtResource("3_b1ogs")]
+visible = false
 layout_mode = 1
 
-[node name="Back" type="Button" parent="."]
+[node name="Back" type="Button" parent="ProfileView"]
+z_index = 1
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
@@ -41,4 +97,34 @@ grow_vertical = 0
 theme = ExtResource("4_pb5sx")
 text = "Back"
 
-[connection signal="button_down" from="Back" to="." method="_on_back_button_down"]
+[node name="ColorRect" type="ColorRect" parent="ProfileView/Back"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.843137)
+
+[node name="NoMatches" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -222.5
+offset_top = -269.0
+offset_right = 222.5
+offset_bottom = 269.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_pb5sx")
+text = "You haven't matched with anyone yet."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="button_down" from="ProfileView/Back" to="." method="_on_back_button_down"]

@@ -5,27 +5,17 @@ extends Control
 func _ready():
 	_on_back_button_down()
 
-func load_lists():
-	var parent = $Matched
-	var profiles = Globals.matched
-	var header = "Matches"
-	
-	for child in parent.get_children():
+func load_list():
+	for child in %MatchList.get_children():
 		child.queue_free()
 	
-	var item = Label.new()
-	item.text = header
-	item.custom_minimum_size.y = 128
-	item.theme = load("res://Themes/SmallHeaderTheme.tres")
-	item.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-	item.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
-	parent.add_child(item)
-		
-	for profile in profiles:
-		item = profileListItem.instantiate()
+	$NoMatches.visible = Globals.matched.is_empty()
+	
+	for profile in Globals.matched:
+		var item = profileListItem.instantiate()
 		item.custom_minimum_size.y = 128
 		item.load_profile(profile)
-		parent.add_child(item)
+		%MatchList.add_child(item)
 		item.button_down.connect(load_profile.bind(profile))
 		
 func load_profile(profile:UserProfile):

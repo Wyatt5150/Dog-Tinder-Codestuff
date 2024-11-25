@@ -50,7 +50,7 @@ clip_contents = true
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="View Matches" parent="TabContainer" instance=ExtResource("3_aor3m")]
+[node name="ViewMatches" parent="TabContainer" instance=ExtResource("3_aor3m")]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2

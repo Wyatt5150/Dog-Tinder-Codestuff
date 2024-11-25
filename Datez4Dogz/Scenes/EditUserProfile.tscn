@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_jpuv0"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_bsm7x"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_fet4r"]
-[ext_resource type="PackedScene" uid="uid://c37jjfesvbmqe" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="7_m57v5"]
+[ext_resource type="PackedScene" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="7_m57v5"]
 
 [sub_resource type="Resource" id="Resource_y7kqq"]
 script = ExtResource("3_bsm7x")
