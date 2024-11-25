@@ -59,10 +59,28 @@ display_subtext = false
 display_error_text = false
 required_use = true
 
+[node name="gender" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "What is your gender?"
+property = 3
+
+[node name="pronouns" parent="." instance=ExtResource("2_1akho")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "What are your prefered pronouns?"
+placeholder_text = "Leave blank for no preference."
+display_subtext = false
+display_error_text = false
+invalid_text = "Name cannot be blank"
+regex_key = 2
+regex_invalid_message = "Field must contain only letters."
+
 [node name="smoker" parent="." instance=ExtResource("3_1th0d")]
 layout_mode = 2
 mouse_filter = 1
 label_text = "Do you Smoke?"
+property = 1
 
 [node name="DogSection" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
@@ -85,6 +103,49 @@ text = "About Your Dogs
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Dougs" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Doug1" type="VBoxContainer" parent="Dougs"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="name" parent="Dougs/Doug1" instance=ExtResource("2_1akho")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Name"
+placeholder_text = "Enter Your Dogs Name!"
+display_subtext = false
+display_error_text = false
+invalid_text = "Name cannot be blank"
+required_use = true
+regex_key = 2
+regex_invalid_message = "Field must contain only letters."
+
+[node name="gender" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "What is your gender?"
+property = 3
+
+[node name="size_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "What size is this dog?"
+property = 7
+
+[node name="activity_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "How active is this dog?"
+property = 5
+
+[node name="neutered_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "Is this dog neutered?"
+
+[node name="vaccinated_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "Is this dog vaccinated?"
+
 [node name="Preferences" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
@@ -105,19 +166,25 @@ text = "People Preferences"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="gender_preference" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "What genders are you comfortable meeting with?"
+property = 4
+
 [node name="smoker_preference" parent="." instance=ExtResource("3_1th0d")]
 layout_mode = 2
 mouse_filter = 1
 label_text = "Are you willing to meeting smokers?"
+property = 1
 
-[node name="Preferences2" type="Panel" parent="."]
+[node name="DogPreferences" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("1_y3vi2")
 
-[node name="Label" type="Label" parent="Preferences2"]
+[node name="Label" type="Label" parent="DogPreferences"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -129,3 +196,22 @@ theme = ExtResource("2_jcykm")
 text = "Dog Preferences"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="size_preference" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "What size are you looking for?"
+property = 8
+
+[node name="activity_preference" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "What activity level are you looking for?"
+property = 6
+
+[node name="neutered_preference" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "Do you want the other dogs to be neutered?"
+property = 2
+
+[node name="vaccinated_preference" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+label_text = "Do you want the other dogs to be vaccinated?"

@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_tub2h"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_8p2ku"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_k0byg"]
-[ext_resource type="PackedScene" uid="uid://ho8amegbpy0" path="res://Scenes/info_content_container.tscn" id="5_248wi"]
+[ext_resource type="PackedScene" uid="uid://cmi47qyp3ruvw" path="res://Scenes/info_content_container.tscn" id="5_248wi"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="7_txa7k"]
 
 [sub_resource type="Resource" id="Resource_y7kqq"]

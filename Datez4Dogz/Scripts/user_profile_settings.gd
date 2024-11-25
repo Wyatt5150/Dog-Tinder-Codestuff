@@ -15,7 +15,7 @@ func CheckValid() -> bool:
 		if field is SettingPanel:
 			if field._validate():
 				continue
-		
+			
 			valid = false
 	
 	return valid
@@ -38,6 +38,9 @@ func PopulateFields():
 	var fields = %ContentContainer.get_children()
 	
 	for field in fields:
+		if user.get(field.name) == null:
+			continue
+		
 		if field is BoolenSettingButton:
 			field._set_value(user.get(field.name))
 		

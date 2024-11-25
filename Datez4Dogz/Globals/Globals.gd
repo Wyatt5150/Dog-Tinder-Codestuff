@@ -79,10 +79,44 @@ func _ready() -> void:
 		for n in range(randi_range(1,3)):
 			dogDistribution[i].append(randi_range(0,dogData.size()-1))
 
+func set_current_user_default():
+	# make dog
+	var dog = DogProfile.new()
+	dog.name = "Doug"
+	dog.bio = "Good boi"
+	dog.gender = Profile.GENDER.MALE
+	dog.activity = Profile.ACTIVITY.LOW
+	dog.size = Profile.SIZE.SMALL
+	dog.neutered = Profile.YESNOMAYBE.YES
+	dog.vaccinated = Profile.YESNOMAYBE.YES
+	dog.age = 3
+	dog.pictures = [load("res://Sprites/DogPics/oakley.jpg"),load("res://Sprites/DogPics/oakley2.jpg"),load("res://Sprites/DogPics/oakleyAnnieRollo.jpg")]
+	
+	# make user
+	currentUser = UserProfile.new()
+	currentUser.name = "Standard Regualar Person"
+	currentUser.pronouns = "De/Fault"
+	currentUser.age = 28
+	currentUser.location = "Somewhere, Real"
+	currentUser.bio = "This is a default me!"
+	currentUser.gender = Profile.GENDER.FEMALE
+	currentUser.smoker = Profile.YESNOMAYBE.NO
+	
+	currentUser.smoker_preference = Profile.YESNOMAYBE.NO
+	currentUser.activity_preference = Profile.ACTIVITY.NOPREF
+	currentUser.size_preference = Profile.SIZE.NOPREF
+	currentUser.gender_preference = Profile.GENDER.NOPREF
+	currentUser.neutered_preference = Profile.YESNOMAYBE.NO
+	currentUser.vaccinated_preference = Profile.YESNOMAYBE.YES
+	
+	currentUser.dogs.append(dog)
+	
+	currentUser.pictures = [load("res://icon.svg")]
+	
 func print_csv(path:String):
 	var file = FileAccess.open(path, FileAccess.READ)
 	file.get_csv_line()
-	
+
 	print("[")
 	while !file.eof_reached():
 		var s = ""
@@ -96,77 +130,10 @@ func print_csv(path:String):
 	print("]")
 
 # profile creation
-func load_dogs():
-	var file = FileAccess.open("res://Data/Dogs.txt", FileAccess.READ)
-	file.get_csv_line("\n") # ignore first line
-	var i  = 0
-	
-	while !file.eof_reached():
-		var fields = file.get_csv_line()
-		
-		var dogname:String = fields[0]
-		var bio:String = fields[1]
-		var breed:String = fields[5]
-		var age:int = int(fields[2])
-		
-		var neutered:bool = fields[4] == "TRUE"
-		
-		var gender:Profile.GENDER
-		match fields[3]:
-			"f":
-				gender = Profile.GENDER.FEMALE
-			"m":
-				gender =  Profile.GENDER.MALE
-			"n":
-				gender =  Profile.GENDER.NONBINARY
-				
-		var size:Profile.SIZE
-		match fields[6]:
-			"s":
-				size = Profile.SIZE.SMALL
-			"m":
-				size =  Profile.SIZE.MEDIUM
-			"l":
-				size =  Profile.SIZE.LARGE
-				
-		var activity:Profile.ACTIVITY
-		match fields[7]:
-			"l":
-				activity = Profile.ACTIVITY.LOW
-			"m":
-				activity =  Profile.ACTIVITY.MEDIUM
-			"h":
-				activity =  Profile.ACTIVITY.HIGH
-				
-		#undecided[i].dogs.append(make_dog(dogname, bio, gender, age, neutered, breed, size, activity))
-		i+=1
-
-func load_users():
-	var file = FileAccess.open("res://Data/Users.txt", FileAccess.READ)
-	file.get_csv_line("\n") # ignore first line
-	
-	while !file.eof_reached():
-		var fields = file.get_csv_line()
-		var username:String = fields[0]
-		var bio:String = fields[1]
-		
-		var gender:Profile.GENDER
-		match fields[2]:
-			"f":
-				gender = Profile.GENDER.FEMALE
-			"m":
-				gender =  Profile.GENDER.MALE
-			"n":
-				gender =  Profile.GENDER.NONBINARY
-				
-		var pronouns:String = fields[3]
-				
-		#undecided.append(make_user(username, bio, gender, pronouns))
-
 func make_user(i:int):
 	var profile = UserProfile.new()
 	var data = userData[i%userData.size()-1]
-	
+
 	profile.name = data[0]
 	profile.bio = data[1]
 	match data[2]:
@@ -191,9 +158,9 @@ func make_user(i:int):
 	profile.location = currentUser.location
 	
 	if currentUser.smoker_preference and randi_range(1,10) == 1:
-		profile.smoker = true
+		profile.smoker = Profile.YESNOMAYBE.NO
 	else:
-		profile.smoker = false
+		profile.smoker = Profile.YESNOMAYBE.NO
 	
 	for dog in dogDistribution[i]:
 		profile.dogs.append(make_dog(dog))
@@ -215,7 +182,7 @@ func make_dog(i:int):
 	dog.bio = data[1]
 	dog.breed = data[5]
 	dog.age = data[2]
-	dog.neutered = data[4] == "TRUE"
+	dog.neutered = Profile.YESNOMAYBE.YES if data[4] == "TRUE" else Profile.YESNOMAYBE.NO
 	
 	match data[3]:
 		"f":
@@ -241,10 +208,10 @@ func make_dog(i:int):
 		"h":
 			dog.activity =  Profile.ACTIVITY.HIGH
 	
-	if !currentUser.vaccinated_preference and randi_range(1,4) == 1:
-		dog.vaccinated = true
+	if randi_range(1,4) == 1:
+		dog.vaccinated = Profile.YESNOMAYBE.NO
 	else:
-		dog.vaccinated = false
+		dog.vaccinated = Profile.YESNOMAYBE.YES
 	
 	dog.pictures = []
 	for filename in DirAccess.get_files_at("res://Sprites/DogPics"):
@@ -270,26 +237,34 @@ func next_user():
 	deciding = user
 
 func current_compatibile_with(otherUser:UserProfile):
+	print(otherUser)
 	# Human Preferences
-	if currentUser.gender_preference != "None" and currentUser.gender_preference != otherUser.gender_string():
-		return false
-		
-	if currentUser.smoker_preference and otherUser.smoker_trait:
-		return false
+	if currentUser.gender_preference != Profile.GENDER.NOPREF:
+		if currentUser.gender_preference != otherUser.gender:
+			print("Gender")
+			return false
+	
+	if currentUser.smoker_preference == Profile.YESNOMAYBE.NO: 
+		if otherUser.smoker == Profile.YESNOMAYBE.YES:
+			print("Smoker")
+			return false
+	
 	# Dog Preferences
-	var notNeutered = {} #pretend this is a set
+	var notNeutered = [] #pretend this is a set
 	for dog:DogProfile in otherUser.dogs:
-		if currentUser.vaccinated_preference and !dog.vaccinated:
-			return false
-		
-		if currentUser.size_preference != "None" and currentUser.size_preference != dog.size:
-			return false
-		
-		if currentUser.activity_preference != "None" and currentUser.activity_preference != dog.activity:
-			return false
-		
-		if !dog.neutered:
-			notNeutered.add(dog.gender)
+		if currentUser.vaccinated_preference == Profile.YESNOMAYBE.YES:
+			if dog.vaccinated != Profile.YESNOMAYBE.YES:
+				print("Vax")
+				return false
+		if currentUser.size_preference != Profile.SIZE.NOPREF:
+			if currentUser.size_preference != dog.size:
+				print("Size")
+				return false
+		#if currentUser.activity_preference != "None":
+			#if currentUser.activity_preference != dog.activity:
+			#return false
+		if dog.neutered == Profile.YESNOMAYBE.NO:
+			notNeutered.append(dog.gender)
 	
 	match currentUser.neutered_preference:
 		"Yes":

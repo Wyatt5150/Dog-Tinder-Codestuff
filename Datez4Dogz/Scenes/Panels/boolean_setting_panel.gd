@@ -4,27 +4,62 @@ class_name BoolenSettingButton
 
 enum PROPERTIES {
 	YESNO,
+	NOYES,
 	YESNOMAYBE,
-	GENDER,
-	ACTIVITY
+	GENDER_SELECT,
+	GENDER_PREF,
+	ACTIVITY_SELECT,
+	ACTIVITY_PREF,
+	SIZE_SELECT,
+	SIZE_PREF
 }
 
 const properties_map = {
-	PROPERTIES.YESNO : {"Yes" : true, "No" : false},
+	PROPERTIES.YESNO : {
+		"Yes" : Profile.YESNOMAYBE.YES, 
+		"No" : Profile.YESNOMAYBE.NO
+	},
+	PROPERTIES.NOYES : {
+		"No" : Profile.YESNOMAYBE.NO,
+		"Yes" : Profile.YESNOMAYBE.YES 
+	},
 	PROPERTIES.YESNOMAYBE : {
-		"Yes" : "Yes", 
-		"No" : "No", 
-		"Maybe" : "Maybe"
+		"Yes" : Profile.YESNOMAYBE.YES, 
+		"No" : Profile.YESNOMAYBE.NO, 
+		"Maybe" : Profile.YESNOMAYBE.NOPREF
 	},
-	PROPERTIES.GENDER : {
-		"Male" : UserProfile.GENDER.MALE, 
-		"Female" : UserProfile.GENDER.FEMALE, 
-		"Other" : UserProfile.GENDER.NONBINARY
+	PROPERTIES.GENDER_SELECT : {
+		"Male" : Profile.GENDER.MALE, 
+		"Female" : Profile.GENDER.FEMALE, 
+		"Other" : Profile.GENDER.NONBINARY
 	},
-	PROPERTIES.ACTIVITY : {
+	PROPERTIES.GENDER_PREF : {
+		"No Preference" : Profile.GENDER.NOPREF,
+		"Male" : Profile.GENDER.MALE, 
+		"Female" : Profile.GENDER.FEMALE, 
+		"Other" : Profile.GENDER.NONBINARY
+	},
+	PROPERTIES.ACTIVITY_SELECT : {
 		"Low" : UserProfile.ACTIVITY.LOW, 
 		"Medium" : UserProfile.ACTIVITY.MEDIUM, 
 		"High" : UserProfile.ACTIVITY.HIGH
+	},
+	PROPERTIES.ACTIVITY_PREF : {
+		"No Preference" : Profile.ACTIVITY.NOPREF,
+		"Low" : Profile.ACTIVITY.LOW, 
+		"Medium" : Profile.ACTIVITY.MEDIUM, 
+		"High" : Profile.ACTIVITY.HIGH
+	},
+	PROPERTIES.SIZE_SELECT : {
+		"Small" : Profile.SIZE.SMALL, 
+		"Medium" : Profile.SIZE.MEDIUM, 
+		"Large" : Profile.SIZE.LARGE
+	},
+	PROPERTIES.SIZE_PREF : {
+		"No Preference" : Profile.SIZE.NOPREF,
+		"Small" : Profile.SIZE.SMALL, 
+		"Medium" : Profile.SIZE.MEDIUM, 
+		"Large" : Profile.SIZE.LARGE
 	}
 }
 
