@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_jpuv0"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_bsm7x"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_fet4r"]
-[ext_resource type="PackedScene" uid="uid://ho8amegbpy0" path="res://Scenes/info_content_container.tscn" id="7_1a5mu"]
+[ext_resource type="PackedScene" uid="uid://cmi47qyp3ruvw" path="res://Scenes/info_content_container.tscn" id="7_1a5mu"]
 
 [sub_resource type="Resource" id="Resource_y7kqq"]
 script = ExtResource("3_bsm7x")
@@ -51,18 +51,19 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 5
 
-[node name="Header2" type="Label" parent="VBoxContainer"]
+[node name="CreateProfile" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 84)
 layout_mode = 2
 size_flags_vertical = 1
 theme = ExtResource("1_et03q")
 theme_override_font_sizes/font_size = 48
-text = "CREATE PROFILE"
+text = "Create Profile"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Header" type="Panel" parent="VBoxContainer/Header2"]
+[node name="Header" type="Panel" parent="VBoxContainer/CreateProfile"]
+visible = false
 show_behind_parent = true
 layout_mode = 1
 anchors_preset = 15
@@ -72,8 +73,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
 
-[node name="Content" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
+
+[node name="Content" type="ScrollContainer" parent="VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 3
 follow_focus = true
 horizontal_scroll_mode = 0
@@ -82,20 +93,20 @@ wheel_scroll_damper = SubResource("Resource_y7kqq")
 dragging_scroll_damper = SubResource("Resource_vhykd")
 allow_horizontal_scroll = false
 
-[node name="ContentContainer" type="VBoxContainer" parent="VBoxContainer/Content"]
+[node name="ContentContainer" type="VBoxContainer" parent="VBoxContainer/ColorRect/Content"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 24
+theme_override_constants/separation = 30
 
-[node name="LoginSection" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
+[node name="LoginSection" type="Panel" parent="VBoxContainer/ColorRect/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("3_fet4r")
 
-[node name="Label" type="Label" parent="VBoxContainer/Content/ContentContainer/LoginSection"]
+[node name="Label" type="Label" parent="VBoxContainer/ColorRect/Content/ContentContainer/LoginSection"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -107,7 +118,7 @@ text = "Login Info"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Username" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
+[node name="Username" parent="VBoxContainer/ColorRect/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
@@ -122,8 +133,9 @@ min_length = 5
 regex_key = 1
 regex_invalid_message = "Field must contain only letters and numbers."
 
-[node name="Password" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
+[node name="Password" parent="VBoxContainer/ColorRect/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 192)
 layout_mode = 2
 mouse_filter = 1
 label_text = "Password"
@@ -137,7 +149,7 @@ min_length = 8
 regex_key = 4
 regex_invalid_message = "Invalid Password."
 
-[node name="ContentContainer" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("7_1a5mu")]
+[node name="ContentContainer" parent="VBoxContainer/ColorRect/Content/ContentContainer" instance=ExtResource("7_1a5mu")]
 unique_name_in_owner = true
 layout_mode = 2
 

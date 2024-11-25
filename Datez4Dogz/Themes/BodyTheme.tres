@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://6hdp0kr0obht"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://6hdp0kr0obht"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pqpk6"]
 content_margin_left = 12.0
@@ -12,21 +12,22 @@ content_margin_top = 20.0
 bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 draw_center = false
 border_width_bottom = 4
-border_color = Color(0.41598, 0.41598, 0.41598, 1)
+border_color = Color(0.485704, 0.485703, 0.485703, 1)
 anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dxoch"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqeud"]
 content_margin_right = 16.0
-bg_color = Color(1, 1, 1, 1)
-draw_center = false
-border_width_bottom = 8
+bg_color = Color(1, 1, 1, 0.0823529)
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb11j"]
 content_margin_right = 16.0
 bg_color = Color(1, 1, 1, 1)
 draw_center = false
-border_width_bottom = 4
+border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig71s"]
@@ -36,7 +37,7 @@ draw_center = false
 border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p4l6"]
-bg_color = Color(0.1008, 0.121053, 0.14, 1)
+bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 border_color = Color(0.446777, 0.446777, 0.446777, 1)
 
 [resource]
@@ -45,6 +46,7 @@ Label/font_sizes/font_size = 30
 LineEdit/styles/focus = SubResource("StyleBoxFlat_pqpk6")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_x2c6h")
 OptionButton/font_sizes/font_size = 32
+OptionButton/styles/focus = SubResource("StyleBoxEmpty_dxoch")
 OptionButton/styles/hover = SubResource("StyleBoxFlat_eqeud")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_mb11j")
 OptionButton/styles/pressed = SubResource("StyleBoxFlat_ig71s")

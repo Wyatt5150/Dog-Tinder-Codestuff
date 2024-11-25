@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ho8amegbpy0"]
+[gd_scene load_steps=4 format=3 uid="uid://cmi47qyp3ruvw"]
 
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="1_y3vi2"]
 [ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_1akho"]
-[ext_resource type="PackedScene" uid="uid://c37jjfesvbmqe" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="3_1th0d"]
+[ext_resource type="PackedScene" uid="uid://chjl1ir0gaxja" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="3_1th0d"]
 
 [node name="ContentContainer" type="VBoxContainer"]
 anchors_preset = 15
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 30
 
 [node name="NameSection" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
@@ -60,7 +60,7 @@ required_use = true
 [node name="smoker" parent="." instance=ExtResource("3_1th0d")]
 layout_mode = 2
 mouse_filter = 1
-label_text = "Smoker?"
+label_text = "Do you Smoke?"
 
 [node name="DogSection" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
@@ -97,14 +97,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-text = "Human Preferences"
+text = "People Preferences"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="smoker_preference" parent="." instance=ExtResource("3_1th0d")]
 layout_mode = 2
 mouse_filter = 1
-label_text = "Smoker?"
+label_text = "Are you willing to meeting smokers?"
 
 [node name="Preferences2" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)

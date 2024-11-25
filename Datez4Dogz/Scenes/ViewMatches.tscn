@@ -34,15 +34,17 @@ script = ExtResource("1_4xnll")
 profileListItem = ExtResource("2_klrj8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+layout_mode = 2
+offset_right = 540.0
+offset_bottom = 960.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="Label" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+mouse_filter = 1
 theme = ExtResource("3_0aop6")
 text = "Matches"
 horizontal_alignment = 1
@@ -61,6 +63,7 @@ autowrap_mode = 3
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_filter = 1
 color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="SmoothScrollContainer" type="ScrollContainer" parent="VBoxContainer/ColorRect"]

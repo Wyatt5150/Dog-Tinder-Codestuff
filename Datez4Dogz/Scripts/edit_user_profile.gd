@@ -37,6 +37,4 @@ func CreateUser():
 		if field is SettingPanel: 
 			new_user.set(field.name, field._get_value())
 		
-		
-	
 	Globals.currentUser = new_user
