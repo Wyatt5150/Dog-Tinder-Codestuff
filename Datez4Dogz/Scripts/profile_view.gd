@@ -45,8 +45,6 @@ func load_user(p:UserProfile):
 	load_profile(p, $ProfileSelect/ScrollContainer/HBoxContainer.get_child(1))
 
 func load_profile(p:Profile, selected):
-	if p == profile:
-		return
 	profile = p
 	load_info()
 	
@@ -97,13 +95,11 @@ func load_info():
 		else:
 			misc.text += "Neutered"
 	
-	# determine about container size
+	# set container stuff
 	var viewportHeight = get_viewport().get_visible_rect().size.y
-	about.size.y = max($About/Container.size.y,
-		viewportHeight-125)
-		
+	about.size.y = max($About/Container.size.y, viewportHeight-125)
 	$About/TouchScroll.minScroll = -(about.size.y - viewportHeight)
-	
+	$About.position.y = $About/TouchScroll.maxScroll
 
 # Profile Image Display things
 func set_profile_image(index):

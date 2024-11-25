@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ddaohhoap1r2e"]
+[gd_scene load_steps=7 format=3 uid="uid://ddaohhoap1r2e"]
 
 [ext_resource type="Script" path="res://Scripts/discover.gd" id="1_f8lsh"]
 [ext_resource type="PackedScene" uid="uid://b5pgeiq6wwn7x" path="res://Scenes/ProfileView.tscn" id="1_tibke"]
 [ext_resource type="Texture2D" uid="uid://bxkaot5v6hvvm" path="res://Sprites/Icons/Accept.png" id="2_pb1tn"]
 [ext_resource type="Theme" uid="uid://b3e6aarkeujla" path="res://Themes/DimButtonIconTheme.tres" id="2_rujlb"]
 [ext_resource type="Texture2D" uid="uid://nwxw4ek1aqtp" path="res://Sprites/Icons/Reject.png" id="3_bujnp"]
+[ext_resource type="Material" uid="uid://oew5i8cbdmhf" path="res://Shader/GradientShader.tres" id="3_c5svp"]
 
 [node name="Discover" type="Control"]
 layout_mode = 3
@@ -20,27 +21,60 @@ script = ExtResource("1_f8lsh")
 [node name="ProfileView" parent="." instance=ExtResource("1_tibke")]
 layout_mode = 1
 
-[node name="Accept" type="Button" parent="."]
-layout_mode = 0
-offset_left = 268.0
-offset_top = 719.0
-offset_right = 437.0
-offset_bottom = 888.0
-theme = ExtResource("2_rujlb")
-icon = ExtResource("2_pb1tn")
-flat = true
+[node name="Gradient" type="ColorRect" parent="."]
+material = ExtResource("3_c5svp")
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
 
-[node name="Decline" type="Button" parent="."]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 714.0
-offset_right = 199.0
-offset_bottom = 883.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -155.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
+
+[node name="Decline" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
 theme = ExtResource("2_rujlb")
 icon = ExtResource("3_bujnp")
 flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Spacer" type="Control" parent="HBoxContainer"]
+custom_minimum_size = Vector2(30, 70)
+layout_mode = 2
+
+[node name="Accept" type="Button" parent="HBoxContainer"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_rujlb")
+icon = ExtResource("2_pb1tn")
+flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="NooneFound" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,5 +101,5 @@ text = "We can't find any more users that match your preferences right now
 
 Try again later"
 
-[connection signal="pressed" from="Accept" to="." method="_on_accept_pressed"]
-[connection signal="pressed" from="Decline" to="." method="_on_decline_pressed"]
+[connection signal="pressed" from="HBoxContainer/Decline" to="." method="_on_decline_pressed"]
+[connection signal="pressed" from="HBoxContainer/Accept" to="." method="_on_accept_pressed"]

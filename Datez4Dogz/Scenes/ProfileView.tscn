@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://b5pgeiq6wwn7x"]
+[gd_scene load_steps=16 format=3 uid="uid://b5pgeiq6wwn7x"]
 
 [ext_resource type="Script" path="res://Scripts/profile_view.gd" id="1_0g7d7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
 [ext_resource type="PackedScene" uid="uid://c1ml36s2gilgm" path="res://Scenes/ProfileButton.tscn" id="2_08yxv"]
-[ext_resource type="Texture2D" uid="uid://dfaqnu57p8s40" path="res://Sprites/DogPics/husky2-1.jpg" id="3_5hx3t"]
+[ext_resource type="Theme" uid="uid://b3e6aarkeujla" path="res://Themes/DimButtonIconTheme.tres" id="4_fyybv"]
+[ext_resource type="Texture2D" uid="uid://dv3ifc4uto27l" path="res://Sprites/DogPics/oakleyAnnieRollo.jpg" id="5_5giti"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="5_o150v"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="6_ee2mv"]
 [ext_resource type="PackedScene" uid="uid://cfttifbxiujqg" path="res://Scenes/TouchScroll.tscn" id="8_royy3"]
@@ -14,6 +15,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d77at"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_h74rt"]
+resource_local_to_scene = true
 shader = ExtResource("9_bi8cb")
 shader_parameter/first_color = Color(0, 0, 0, 1)
 shader_parameter/second_color = Color(0, 0, 0, 0)
@@ -44,7 +46,6 @@ script = ExtResource("1_0g7d7")
 profileButton = ExtResource("2_08yxv")
 
 [node name="Label" type="Label" parent="."]
-visible = false
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -52,11 +53,11 @@ theme = ExtResource("1_h8h0o")
 text = "PROFILE VIEW"
 
 [node name="UserImageDisplay" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 57.0
-offset_top = 112.0
-offset_right = 525.0
-offset_bottom = 558.0
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 607.0
+grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UserImageDisplay"]
@@ -71,6 +72,7 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("4_fyybv")
 theme_override_font_sizes/font_size = 48
 text = "<"
 flat = true
@@ -79,8 +81,8 @@ flat = true
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 3.0
-texture = ExtResource("3_5hx3t")
+size_flags_stretch_ratio = 4.0
+texture = ExtResource("5_5giti")
 expand_mode = 1
 stretch_mode = 5
 
@@ -88,17 +90,18 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("4_fyybv")
 theme_override_font_sizes/font_size = 48
 text = ">"
 flat = true
 
 [node name="About" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = 11.0
-offset_top = 570.0
-offset_right = 606.0
-offset_bottom = 1065.0
-color = Color(0.154733, 0.154733, 0.154733, 1)
+offset_left = -14.0
+offset_top = 615.0
+offset_right = 581.0
+offset_bottom = 1110.0
+color = Color(0.099986, 0.099986, 0.099986, 1)
 
 [node name="Container" type="VBoxContainer" parent="About"]
 layout_mode = 1
@@ -113,6 +116,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("5_o150v")
+text = "Name Placeholder"
 autowrap_mode = 3
 
 [node name="Info" type="Label" parent="About/Container"]
@@ -120,6 +124,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("6_ee2mv")
+text = "info place holder"
 autowrap_mode = 3
 
 [node name="Bio" type="Label" parent="About/Container"]
@@ -127,6 +132,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("6_ee2mv")
+text = "bio place holder"
 autowrap_mode = 3
 
 [node name="Misc" type="Label" parent="About/Container"]
@@ -134,6 +140,7 @@ custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("6_ee2mv")
+text = "misc plceholder"
 autowrap_mode = 3
 
 [node name="TouchScroll" parent="About" instance=ExtResource("8_royy3")]
@@ -160,6 +167,7 @@ offset_top = 10.0
 offset_bottom = -34.0
 grow_horizontal = 2
 grow_vertical = 2
+horizontal_scroll_mode = 3
 script = ExtResource("9_qra02")
 wheel_scroll_damper = SubResource("Resource_12w4p")
 dragging_scroll_damper = SubResource("Resource_q6irv")
