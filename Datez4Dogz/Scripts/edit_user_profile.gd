@@ -13,13 +13,11 @@ func CheckValid() -> bool:
 	var valid = true
 	
 	for field in fields:
-		if !(field is SettingPanel): # Skips non-SettingsPanels
-			continue
+		if field is SettingPanel:
+			if field._validate():
+				continue
 		
-		if field._validate():
-			continue
-		
-		valid = false
+			valid = false
 	
 	return valid
 
@@ -28,13 +26,12 @@ func CreateUser():
 	var fields = %ContentContainer.get_children()
 	
 	for field in fields:
-		if !(field is SettingPanel): # Skips non-SettingsPanels
-			continue
-		
-		
-		if field.name == "name":
-			new_user.name = field._get_value()
-		else:
+		if field is BoolenSettingButton:
 			new_user.set(field.name, field._get_value())
+		
+		if field is SettingPanel: 
+			new_user.set(field.name, field._get_value())
+		
+		
 	
 	Globals.currentUser = new_user

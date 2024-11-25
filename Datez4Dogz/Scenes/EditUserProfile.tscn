@@ -183,6 +183,26 @@ layout_mode = 2
 mouse_filter = 1
 label_text = "Smoker?"
 
+[node name="DogSection" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_fet4r")
+
+[node name="Label" type="Label" parent="VBoxContainer/Content/ContentContainer/DogSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "About Your Dogs
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="Preferences" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
@@ -206,6 +226,7 @@ vertical_alignment = 1
 layout_mode = 2
 mouse_filter = 1
 label_text = "Smoker?"
+property = 2
 
 [node name="Preferences2" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)

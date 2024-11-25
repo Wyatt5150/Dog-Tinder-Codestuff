@@ -86,7 +86,7 @@ func load_info():
 	
 	var misc = container.get_node("Misc")
 	misc.text = ""
-	if profile.profileType == Profile.PROFILETYPE.DOG:
+	if profile is DogProfile:
 		if profile.vaccinated:
 			misc.text += "Vaccinated"
 		else:

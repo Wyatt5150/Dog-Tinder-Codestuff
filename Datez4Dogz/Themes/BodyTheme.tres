@@ -15,18 +15,21 @@ border_width_bottom = 4
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqeud"]
+content_margin_right = 16.0
 bg_color = Color(1, 1, 1, 1)
 draw_center = false
 border_width_bottom = 8
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mb11j"]
+content_margin_right = 16.0
 bg_color = Color(1, 1, 1, 1)
 draw_center = false
 border_width_bottom = 4
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ig71s"]
+content_margin_right = 16.0
 bg_color = Color(1, 1, 1, 1)
 draw_center = false
 border_width_bottom = 2

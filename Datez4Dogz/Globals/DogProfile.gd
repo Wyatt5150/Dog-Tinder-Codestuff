@@ -9,7 +9,6 @@ var activity:ACTIVITY
 	
 func _init() -> void:
 	profileType = PROFILETYPE.DOG
-	pass
 
 func size_string():
 	match size:
