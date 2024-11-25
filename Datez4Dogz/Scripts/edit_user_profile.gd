@@ -12,6 +12,11 @@ func CheckValid() -> bool:
 	var fields = %ContentContainer.get_children()
 	var valid = true
 	
+	if not %Username._validate():
+		valid = false
+	if not %Password._validate():
+		valid = false
+	
 	for field in fields:
 		if field is SettingPanel:
 			if field._validate():

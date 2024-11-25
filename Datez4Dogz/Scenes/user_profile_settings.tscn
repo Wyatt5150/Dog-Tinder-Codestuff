@@ -1,0 +1,103 @@
+[gd_scene load_steps=9 format=3 uid="uid://45u4ijy7fuyu"]
+
+[ext_resource type="Script" path="res://Scripts/user_profile_settings.gd" id="1_eb45e"]
+[ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_tub2h"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_8p2ku"]
+[ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_k0byg"]
+[ext_resource type="PackedScene" uid="uid://ho8amegbpy0" path="res://Scenes/info_content_container.tscn" id="5_248wi"]
+[ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="7_txa7k"]
+
+[sub_resource type="Resource" id="Resource_y7kqq"]
+script = ExtResource("3_k0byg")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[sub_resource type="Resource" id="Resource_vhykd"]
+script = ExtResource("3_k0byg")
+friction = 4.0
+minimum_velocity = 0.4
+rebound_strength = 7.0
+
+[node name="UserProfileSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eb45e")
+
+[node name="Background Color" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.462291, 0.462291, 0.462291, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Header2" type="Label" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 84)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("1_tub2h")
+theme_override_font_sizes/font_size = 48
+text = "EDIT PROFILE"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Header" type="Panel" parent="VBoxContainer/Header2"]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+
+[node name="Content" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+script = ExtResource("2_8p2ku")
+wheel_scroll_damper = SubResource("Resource_y7kqq")
+dragging_scroll_damper = SubResource("Resource_vhykd")
+allow_horizontal_scroll = false
+
+[node name="ContentContainer" parent="VBoxContainer/Content" instance=ExtResource("5_248wi")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="NavigationButtons" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme = ExtResource("7_txa7k")
+
+[node name="VBoxContainer" type="HBoxContainer" parent="VBoxContainer/NavigationButtons"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Save" type="Button" parent="VBoxContainer/NavigationButtons/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SAVE"
+
+[connection signal="pressed" from="VBoxContainer/NavigationButtons/VBoxContainer/Save" to="." method="Submit"]

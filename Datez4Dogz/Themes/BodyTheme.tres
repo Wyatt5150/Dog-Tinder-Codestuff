@@ -7,11 +7,12 @@ border_width_bottom = 2
 border_color = Color(1, 1, 1, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x2c6h"]
-content_margin_left = 12.0
+content_margin_left = 24.0
 content_margin_top = 20.0
 bg_color = Color(0.0885599, 0.0885599, 0.0885599, 1)
 draw_center = false
 border_width_bottom = 4
+border_color = Color(0.41598, 0.41598, 0.41598, 1)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqeud"]
@@ -36,7 +37,7 @@ border_width_bottom = 2
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p4l6"]
 bg_color = Color(0.1008, 0.121053, 0.14, 1)
-border_width_top = 4
+border_color = Color(0.446777, 0.446777, 0.446777, 1)
 
 [resource]
 Label/font_sizes/font_size = 30

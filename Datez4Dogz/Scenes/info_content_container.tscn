@@ -1,0 +1,126 @@
+[gd_scene load_steps=4 format=3 uid="uid://ho8amegbpy0"]
+
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="1_y3vi2"]
+[ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_1akho"]
+[ext_resource type="PackedScene" uid="uid://c37jjfesvbmqe" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="3_1th0d"]
+
+[node name="ContentContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="NameSection" type="Panel" parent="."]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_y3vi2")
+
+[node name="Label" type="Label" parent="NameSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "About You
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" parent="." instance=ExtResource("2_1akho")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Name"
+placeholder_text = "Enter Your Name!"
+display_subtext = false
+display_error_text = false
+invalid_text = "Name cannot be blank"
+required_use = true
+regex_key = 2
+regex_invalid_message = "Field must contain only letters."
+
+[node name="location" parent="." instance=ExtResource("2_1akho")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "Location"
+placeholder_text = "City, State"
+display_subtext = false
+display_error_text = false
+required_use = true
+
+[node name="smoker" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+mouse_filter = 1
+label_text = "Smoker?"
+
+[node name="DogSection" type="Panel" parent="."]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_y3vi2")
+
+[node name="Label" type="Label" parent="DogSection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "About Your Dogs
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Preferences" type="Panel" parent="."]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_y3vi2")
+
+[node name="Label" type="Label" parent="Preferences"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Human Preferences"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="smoker_preference" parent="." instance=ExtResource("3_1th0d")]
+layout_mode = 2
+mouse_filter = 1
+label_text = "Smoker?"
+
+[node name="Preferences2" type="Panel" parent="."]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_y3vi2")
+
+[node name="Label" type="Label" parent="Preferences2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Dog Preferences"
+horizontal_alignment = 1
+vertical_alignment = 1
