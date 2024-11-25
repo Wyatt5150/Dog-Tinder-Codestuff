@@ -42,7 +42,6 @@ func _ready() -> void:
 func load_user(p:UserProfile):
 	# call upon starting this scene or to change user
 	load_profile_buttons(p)
-	load_profile(p, $ProfileSelect/ScrollContainer/HBoxContainer.get_child(1))
 
 func load_profile(p:Profile, selected):
 	profile = p
@@ -121,7 +120,8 @@ func load_profile_buttons(p:UserProfile):
 		child.queue_free()
 	
 	# button for user
-	make_profile_button(p)
+	load_profile(p, make_profile_button(p))
+	
 	# button for each dog
 	for dog in p.dogs:
 		make_profile_button(dog)

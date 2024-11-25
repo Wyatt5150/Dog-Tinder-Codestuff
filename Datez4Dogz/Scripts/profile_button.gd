@@ -5,9 +5,6 @@ var validClick:bool
 
 signal clicked(profile)
 
-func _ready() -> void:
-	deselect()
-
 func set_profile(p:Profile):
 	profile = p
 	$ProfileIcon.set_profile(p)
