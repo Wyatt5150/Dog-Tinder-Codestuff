@@ -9,6 +9,8 @@ func _on_tab_container_tab_changed(tab: int) -> void:
 	reset_icons()
 	$TabContainer.set_tab_icon(tab, load("res://Sprites/Icons/"+tabIconNames[tab]+".png"))
 	match tab:
+		0:
+			$TabContainer/Discover.load_user()
 		1:
 			$"TabContainer/View Matches".load_lists()
 

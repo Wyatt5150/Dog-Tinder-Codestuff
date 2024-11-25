@@ -2,11 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://cdj50l6v286mg" path="res://Sprites/Icons/Circle100.png" id="1_4uqb4"]
 [ext_resource type="Script" path="res://Scripts/profile_icon.gd" id="2_hy63p"]
-[ext_resource type="Texture2D" uid="uid://bqdgv3emvk5ly" path="res://Sprites/DogPics/husky2.jpg" id="3_s2a85"]
+[ext_resource type="Texture2D" uid="uid://dfaqnu57p8s40" path="res://Sprites/DogPics/husky2-1.jpg" id="3_3cquh"]
 
 [node name="ProfileIcon" type="TextureRect"]
 self_modulate = Color(0, 0, 0, 1)
-clip_children = 1
+clip_children = 2
 anchors_preset = -1
 anchor_bottom = 0.11875
 offset_right = 100.0
@@ -16,11 +16,7 @@ stretch_mode = 4
 script = ExtResource("2_hy63p")
 metadata/_edit_use_anchors_ = true
 
-[node name="Image" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 150.0
-offset_bottom = 150.0
-mouse_filter = 2
-texture = ExtResource("3_s2a85")
-expand_mode = 1
-stretch_mode = 4
+[node name="Image" type="Sprite2D" parent="."]
+position = Vector2(50, 51)
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("3_3cquh")
