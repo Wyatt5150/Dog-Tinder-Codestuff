@@ -24,9 +24,6 @@ var bio:String = "" # brief description about user/dog
 var age:int
 var gender:GENDER 
 var pictures:Array = []
-	
-func _init() -> void:
-	pass
 
 func gender_string():
 	match gender:

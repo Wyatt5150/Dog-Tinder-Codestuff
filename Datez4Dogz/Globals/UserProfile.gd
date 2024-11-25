@@ -6,8 +6,7 @@ class_name UserProfile
 var pronouns:String
 var location:String
 
-var smoker_trait : bool
-var gender_trait : String
+var smoker : bool
 
 var dogs:Array = [] # array of dog profiles
 

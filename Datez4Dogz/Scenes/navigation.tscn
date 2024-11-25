@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ch1gnpeuvoa7p" path="res://Scenes/ViewMatches.tscn" id="3_aor3m"]
 [ext_resource type="StyleBox" uid="uid://d22b54m4tbqnp" path="res://Themes/NavigationSelectedTab.tres" id="3_l34hn"]
 [ext_resource type="PackedScene" uid="uid://mnjok4xriarq" path="res://Scenes/Settings.tscn" id="4_8bo8h"]
-[ext_resource type="PackedScene" uid="uid://5kr7gpwa4bmm" path="res://Scenes/EditUserProfile.tscn" id="5_st7pe"]
+[ext_resource type="PackedScene" path="res://Scenes/user_profile_settings.tscn" id="7_86v7v"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_thx7o"]
 
@@ -62,7 +62,7 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="EditUserProfile" parent="TabContainer" instance=ExtResource("5_st7pe")]
+[node name="UserProfileSettings" parent="TabContainer" instance=ExtResource("7_86v7v")]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3

@@ -50,6 +50,8 @@ class_name SettingPanel
 	set(new_val):
 		validate_regex = RegEx.new()
 		match new_val:
+			REGEX_KEYS.NONE:
+				validate_regex.clear()
 			REGEX_KEYS.CUSTOM:
 				validate_regex.compile(regex_custom)
 			_:
@@ -75,7 +77,7 @@ enum REGEX_KEYS {
 }
 const REGEX_MAP = {
 	REGEX_KEYS.NONE : {
-		"key" : r"^.*$",
+		"key" : r"",
 		"error" : "None"
 	},
 	REGEX_KEYS.ALPHANUMERIC : {
@@ -114,6 +116,9 @@ func _ready() -> void:
 func _get_value() -> String:
 	return %InputText.text
 
+func _set_value(value) -> void:
+	%InputText.text = value
+
 func _validate() -> bool:
 	var user_input = %InputText.text
 	
@@ -126,9 +131,10 @@ func _validate() -> bool:
 		_handle_validation_error(ERROR.TOO_SHORT)
 		return false
 	
-	if not validate_regex.search(user_input):
-		_handle_validation_error(ERROR.INVALID_REGEX)
-		return false
+	if regex_key != REGEX_KEYS.NONE:
+		if not validate_regex.search(user_input):
+			_handle_validation_error(ERROR.INVALID_REGEX)
+			return false
 	
 	_handle_validation_error(ERROR.OK)
 	return true
