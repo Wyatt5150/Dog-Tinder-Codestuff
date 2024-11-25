@@ -33,7 +33,6 @@ func load_profile(profile:UserProfile):
 
 
 func _on_back_button_down() -> void:
-	var obj : Control
 	$ProfileView.visible = false
 	$ProfileView.mouse_filter = MOUSE_FILTER_IGNORE
 	pass # Replace with function body.

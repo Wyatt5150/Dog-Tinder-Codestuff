@@ -8,17 +8,12 @@ var imageIndex:int
 var buttons
 var currentSeleted
 
-const verPadding:float = 10
-const horPadding:float = 10
-
-
 @onready var userImage : TextureRect = %UserImage
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var aboutMaxY
-	$About/TouchScroll.max = 584
-	$About/TouchScroll.min = 0
+	$About/TouchScroll.maxScroll = 584
+	$About/TouchScroll.minScroll = 0
 	
 	# set up image display stuff
 	var next = %Next
@@ -107,11 +102,8 @@ func load_info():
 	about.size.y = max($About/Container.size.y,
 		viewportHeight-125)
 		
-	$About/TouchScroll.min = -(about.size.y - viewportHeight)
+	$About/TouchScroll.minScroll = -(about.size.y - viewportHeight)
 	
-	# set margins
-	container.size = about.size - Vector2(horPadding*2, verPadding*2)
-	container.position = Vector2(horPadding, verPadding)
 
 # Profile Image Display things
 func set_profile_image(index):
@@ -133,7 +125,7 @@ func load_profile_buttons(p:UserProfile):
 		child.queue_free()
 	
 	# button for user
-	var but:Button = make_profile_button(p)
+	make_profile_button(p)
 	# button for each dog
 	for dog in p.dogs:
 		make_profile_button(dog)

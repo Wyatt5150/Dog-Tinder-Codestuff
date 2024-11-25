@@ -13,7 +13,7 @@ func set_profile(p:Profile):
 	$ProfileIcon.set_profile(p)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if validClick and clickPos.distance_to(get_global_mouse_position()) > 10:
 		validClick = false
 
@@ -23,7 +23,7 @@ func _on_button_down() -> void:
 
 func _on_button_up() -> void:
 	if validClick:
-		emit_signal("clicked",profile)
+		clicked.emit(profile)
 		validClick = false
 
 func select():

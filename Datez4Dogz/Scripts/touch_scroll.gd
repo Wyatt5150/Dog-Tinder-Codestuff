@@ -6,8 +6,8 @@ var holding:bool
 var parent:Node
 var prev:float
 var vel:float
-@export var max:float = 1920
-@export var min:float = 0
+@export var maxScroll:float = 1920
+@export var minScroll:float = 0
 enum AXIS {HORIZONTAL, VERTICAL}
 @export var direction:AXIS
 
@@ -31,12 +31,12 @@ func _process(delta: float) -> void:
 		prev = get_mouse_pos()
 	else:
 		# drift back into bounds
-		if parentPos > max:
+		if parentPos > maxScroll:
 			vel = 0
-			set_parent_pos(move_toward(parentPos, max, 1000*delta))
-		elif parentPos < min:
+			set_parent_pos(move_toward(parentPos, maxScroll, 1000*delta))
+		elif parentPos < minScroll:
 			vel = 0
-			set_parent_pos(move_toward(parentPos, min, 1000*delta))
+			set_parent_pos(move_toward(parentPos, minScroll, 1000*delta))
 		# glide
 		elif vel != 0:
 			set_parent_pos(parentPos+vel*delta)
