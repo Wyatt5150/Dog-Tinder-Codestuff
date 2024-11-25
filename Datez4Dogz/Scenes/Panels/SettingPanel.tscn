@@ -18,7 +18,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 theme = ExtResource("1_nfed1")
 script = ExtResource("1_ulove")
-regex_key = 5
+regex_invalid_message = "None"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1

@@ -83,7 +83,7 @@ const REGEX_MAP = {
 		"error" : "Field must contain only letters and numbers."
 	},
 	REGEX_KEYS.ALPHABET : {
-		"key" : r"^[a-zA-Z]*$",
+		"key" : r"^[a-zA-Z ]*$",
 		"error" : "Field must contain only letters."
 	},
 	REGEX_KEYS.NUMERIC : {
@@ -100,8 +100,6 @@ const REGEX_MAP = {
 	},
 }
 
-
-
 enum ERROR {
 	OK,
 	REQUIRED_FIELD,
@@ -113,7 +111,8 @@ enum ERROR {
 func _ready() -> void:
 	self._set_minimum_size()
 
-
+func _get_value() -> String:
+	return %InputText.text
 
 func _validate() -> bool:
 	var user_input = %InputText.text
@@ -133,7 +132,6 @@ func _validate() -> bool:
 	
 	_handle_validation_error(ERROR.OK)
 	return true
-	
 
 func _handle_validation_error(error : ERROR) -> void:
 	
@@ -150,7 +148,6 @@ func _handle_validation_error(error : ERROR) -> void:
 			self.invalid_text = required_invalid_message
 	
 	self.display_error_text = true
-
 
 func _set_minimum_size() -> void:
 	var children = $VBoxContainer2.get_children()

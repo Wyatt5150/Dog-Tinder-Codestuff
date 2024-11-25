@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://c37jjfesvbmqe"]
+
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="1_pmsej"]
+[ext_resource type="Script" path="res://Scenes/Panels/boolean_setting_panel.gd" id="2_nlhfa"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f55ij"]
+content_margin_left = 16.0
+
+[node name="BooleanSettingPanel" type="Panel"]
+custom_minimum_size = Vector2(0, 64)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("1_pmsej")
+script = ExtResource("2_nlhfa")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="UserInput" type="HBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="InputLabel" type="Label" parent="VBoxContainer2/UserInput"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_f55ij")
+text = "Placeholder:"
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="VBoxContainer2/UserInput"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 2
+clip_text = true
+selected = 0
+allow_reselect = true
+item_count = 2
+popup/item_0/text = "Yes"
+popup/item_1/text = "No"
+popup/item_1/id = 1

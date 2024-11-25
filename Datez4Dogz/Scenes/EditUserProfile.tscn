@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://5kr7gpwa4bmm"]
+[gd_scene load_steps=11 format=3 uid="uid://5kr7gpwa4bmm"]
 
 [ext_resource type="Script" path="res://Scripts/edit_user_profile.gd" id="1_5ynhn"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_et03q"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="2_jpuv0"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/scroll_damper/expo_scroll_damper.gd" id="3_bsm7x"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="3_fet4r"]
+[ext_resource type="PackedScene" uid="uid://c37jjfesvbmqe" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="7_m57v5"]
 
 [sub_resource type="Resource" id="Resource_y7kqq"]
 script = ExtResource("3_bsm7x")
@@ -117,7 +118,7 @@ invalid_text = "Username cannot be blank."
 required_use = true
 min_length = 5
 regex_key = 1
-regex_invalid_message = "Must only contain numbers and letters."
+regex_invalid_message = "Field must contain only letters and numbers."
 
 [node name="Password" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 128)
@@ -125,12 +126,14 @@ layout_mode = 2
 mouse_filter = 1
 label_text = "Password"
 placeholder_text = "Enter A Password!"
+secret = true
 subtext = "Password must be at least 8 characters long and contain uppercase, lowercase, and numeric values."
 display_error_text = false
 invalid_text = "Invalid Password"
 required_use = true
 min_length = 8
 regex_key = 4
+regex_invalid_message = "Invalid Password."
 
 [node name="NameSection" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
@@ -147,42 +150,81 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-text = "Name Info"
+text = "About You
+"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FirstName" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
+[node name="name" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
-label_text = "First"
-placeholder_text = "Enter Your First Name!"
+label_text = "Name"
+placeholder_text = "Enter Your Name!"
 display_subtext = false
 display_error_text = false
-invalid_text = "First Name cannot be blank"
+invalid_text = "Name cannot be blank"
 required_use = true
 regex_key = 2
+regex_invalid_message = "Field must contain only letters."
 
-[node name="PreferredName" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
+[node name="location" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
-label_text = "Preferred"
-placeholder_text = "Enter Your Preferred Name!"
-display_subtext = false
-display_error_text = false
-regex_key = 2
-
-[node name="LastName" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-mouse_filter = 1
-label_text = "Last"
-placeholder_text = "Enter Your Last Name!"
+label_text = "Location"
+placeholder_text = "City, State"
 display_subtext = false
 display_error_text = false
 required_use = true
-regex_key = 2
+
+[node name="smoker_trait" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("7_m57v5")]
+layout_mode = 2
+mouse_filter = 1
+label_text = "Smoker?"
+
+[node name="Preferences" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_fet4r")
+
+[node name="Label" type="Label" parent="VBoxContainer/Content/ContentContainer/Preferences"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Human Preferences"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="smoker_preference" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("7_m57v5")]
+layout_mode = 2
+mouse_filter = 1
+label_text = "Smoker?"
+
+[node name="Preferences2" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("3_fet4r")
+
+[node name="Label" type="Label" parent="VBoxContainer/Content/ContentContainer/Preferences2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+text = "Dog Preferences"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="NavigationButtons" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)

@@ -9,7 +9,6 @@ enum NEUTEREDPREF {
 	NO,
 	MAYBE
 }
-	
 
 var pronouns:String
 var location:String

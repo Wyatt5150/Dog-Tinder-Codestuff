@@ -1,5 +1,6 @@
 # superclass for profiles
 # holds information that both dogs and humans would have
+extends Resource
 class_name Profile
 
 enum GENDER {
