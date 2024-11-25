@@ -79,20 +79,21 @@ wheel_scroll_damper = SubResource("Resource_y7kqq")
 dragging_scroll_damper = SubResource("Resource_vhykd")
 allow_horizontal_scroll = false
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Content"]
+[node name="ContentContainer" type="VBoxContainer" parent="VBoxContainer/Content"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 0
 
-[node name="LoginSection" type="Panel" parent="VBoxContainer/Content/VBoxContainer"]
+[node name="LoginSection" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("3_fet4r")
 
-[node name="Label" type="Label" parent="VBoxContainer/Content/VBoxContainer/LoginSection"]
+[node name="Label" type="Label" parent="VBoxContainer/Content/ContentContainer/LoginSection"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +105,7 @@ text = "Login Info"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Username" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+[node name="Username" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
@@ -112,29 +113,33 @@ label_text = "Username"
 placeholder_text = "Enter  A Username!"
 display_subtext = false
 display_error_text = false
-invalid_text = "Username cannot be blank"
+invalid_text = "Username cannot be blank."
+required_use = true
+min_length = 5
+regex_key = 1
+regex_invalid_message = "Must only contain numbers and letters."
 
-[node name="Password" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+[node name="Password" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
 mouse_filter = 1
 label_text = "Password"
 placeholder_text = "Enter A Password!"
-secret = true
 subtext = "Password must be at least 8 characters long and contain uppercase, lowercase, and numeric values."
 display_error_text = false
 invalid_text = "Invalid Password"
-use_regex = true
-regex_key = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,10}$"
+required_use = true
+min_length = 8
+regex_key = 4
 
-[node name="NameSection" type="Panel" parent="VBoxContainer/Content/VBoxContainer"]
+[node name="NameSection" type="Panel" parent="VBoxContainer/Content/ContentContainer"]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
 theme = ExtResource("3_fet4r")
 
-[node name="Label" type="Label" parent="VBoxContainer/Content/VBoxContainer/NameSection"]
+[node name="Label" type="Label" parent="VBoxContainer/Content/ContentContainer/NameSection"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,7 +151,7 @@ text = "Name Info"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="FirstName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+[node name="FirstName" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
@@ -155,8 +160,10 @@ placeholder_text = "Enter Your First Name!"
 display_subtext = false
 display_error_text = false
 invalid_text = "First Name cannot be blank"
+required_use = true
+regex_key = 2
 
-[node name="PreferredName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+[node name="PreferredName" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
@@ -164,8 +171,9 @@ label_text = "Preferred"
 placeholder_text = "Enter Your Preferred Name!"
 display_subtext = false
 display_error_text = false
+regex_key = 2
 
-[node name="LastName" parent="VBoxContainer/Content/VBoxContainer" instance=ExtResource("2_5c1me")]
+[node name="LastName" parent="VBoxContainer/Content/ContentContainer" instance=ExtResource("2_5c1me")]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 mouse_filter = 1
@@ -173,6 +181,8 @@ label_text = "Last"
 placeholder_text = "Enter Your Last Name!"
 display_subtext = false
 display_error_text = false
+required_use = true
+regex_key = 2
 
 [node name="NavigationButtons" type="Panel" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 64)
