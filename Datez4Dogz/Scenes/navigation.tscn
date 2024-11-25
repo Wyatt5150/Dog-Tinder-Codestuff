@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scripts/navigation.gd" id="1_37e67"]
 [ext_resource type="PackedScene" uid="uid://ddaohhoap1r2e" path="res://Scenes/Discover.tscn" id="1_djr2o"]
-[ext_resource type="StyleBox" path="res://Themes/NavigationTabs.tres" id="2_pj0bc"]
+[ext_resource type="StyleBox" uid="uid://dkvjc84qyhnvj" path="res://Themes/NavigationTabs.tres" id="2_pj0bc"]
 [ext_resource type="PackedScene" uid="uid://ch1gnpeuvoa7p" path="res://Scenes/ViewMatches.tscn" id="3_aor3m"]
-[ext_resource type="StyleBox" path="res://Themes/NavigationSelectedTab.tres" id="3_l34hn"]
+[ext_resource type="StyleBox" uid="uid://d22b54m4tbqnp" path="res://Themes/NavigationSelectedTab.tres" id="3_l34hn"]
 [ext_resource type="PackedScene" uid="uid://mnjok4xriarq" path="res://Scenes/Settings.tscn" id="4_8bo8h"]
 [ext_resource type="PackedScene" uid="uid://5kr7gpwa4bmm" path="res://Scenes/EditUserProfile.tscn" id="5_st7pe"]
 
