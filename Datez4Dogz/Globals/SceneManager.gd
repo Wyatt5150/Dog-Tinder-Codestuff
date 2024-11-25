@@ -13,4 +13,6 @@ const SCENES_MAP = {
 }
 
 func Change_Scene(scene : SCENES) -> void:
+	if scene == SCENES.NAVIGATION:
+		await Globals.next_user()
 	get_tree().change_scene_to_file(SCENES_MAP[scene])

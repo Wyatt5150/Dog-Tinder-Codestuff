@@ -56,7 +56,7 @@ func load_info():
 	# load image display stuff
 	images = profile.pictures
 	for but in buttons:
-		but.disabled = false
+		but.disabled = profile.pictures.size() <= 1
 	set_profile_image(0)
 	
 	# load information

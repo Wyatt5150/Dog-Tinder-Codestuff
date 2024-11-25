@@ -1,0 +1,31 @@
+name,bio,gender,pronouns
+Markus,Walking in the park,m,He/Him
+Amelia,New dog owner here,f,She/Her
+Xander,Do you bark or do you arf?,n,They/Them
+Triss,They call me the subwoofer,f,She/They
+Jaquan,Howdy y'all,m,He/Him
+Bethany,Long walks on the beach,f,She/Her
+Ryuji,Can dogs have boba tea?,m,He/Him
+Michelle,Dogs > Cats,f,She/Her
+Tanner,This app is great but I wish there was an iguana mode,m,He/Him
+Qwen,I love dogs so much,n,They/Them
+Aiden,Erm... How do you do? *tips fedora*,m,He/Him
+Caitlyn,What is a dog's favorite music genre?,f,She/Her
+Violet,How old are you in dog yearsS?,f,She/Her
+Jeice,Let's talk about dogs!,m,He/Him
+Viktor,A dog's best friend,m,He/Him
+David,<3,m,He/Him
+Anthony,Puppers are poggers,m,He/They
+Shelby,Dog food recommendations?,f,She/Her
+Sophia,Dog friendly resturaunts?,f,She/Her
+Valeria,WHY ARE ALL MY LETTERS CAPITAL,f,She/Her
+Yasmine,Dogs are a gift,f,She/Her
+Daniel,I tried teaching my dog how to play video games,m,He/Him
+Carlos,Tell me your favorite dog video,m,He/Him
+Tori,Currently writing a book,f,She/Her
+Ellie,Looking for someone to walk with me and my dog,f,She/Her
+Candace,Come as you are,f,She/Her
+Lydia,Hi everyone,f,She/Her
+Sven,Can't wait to meet you and your dog!,m,He/Him
+Tony,Need help training my dog,m,He/Him
+Astarion,Good evening,n,They/Them

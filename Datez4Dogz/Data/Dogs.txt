@@ -1,0 +1,31 @@
+Name,bio,age,gender,neutered/spayed,breed,size,activity level
+Rufus,shy at first but will warm up to new friends,3,m,FALSE,Daschund,s,m
+Max,energetic and friendly,1,m,TRUE,Boston Terrier,s,h
+Francine,Looking for walking buddies,7,f,TRUE,Poodle,m,l
+Renala,Please ask to pet first,6,f,FALSE,Beagle,m,l
+Skrimblim,I got that dog in me,2,m,TRUE,Chihuahua,s,h
+Paskintio,"On all levels except physical, I am a wolf",9,m,TRUE,German Shepherd,l,m
+Bowlbo,*paws at you*,4,m,TRUE,Bulldog,m,l
+Cathy,Dog with a blog,5,f,TRUE,Husky,l,h
+Leon,bwork,8,m,TRUE,Golden Retriever,l,h
+Sans,Frisbee or ball?,7,m,TRUE,Rottweiler,l,l
+Bertha,The key to my heart is head scritches,3,f,TRUE,Alaskan Malamute,l,m
+Isabelle,Belly rubs >,7,f,FALSE,Australian Cattle Dog,m,m
+Pinky,Looking for an active dog to help inspire me,5,f,TRUE,Corgi,m,l
+Rose,Faster than your dog,4,f,TRUE,Pomeranian,s,h
+Snot,Watch out for when this one sneezes,2,m,FALSE,Rottweiler,l,l
+Fang,What's your favorite food?,6,m,TRUE,German Shepherd,l,h
+Beo,Still searching for the perfect stick,10,m,TRUE,Beagle,m,m
+Moop,I can catch my own tail,1,m,FALSE,Golden Retriever,l,l
+Chuck,BONES,3,m,TRUE,American Eskimo Dog,l,m
+Snoopy,Gamer dog,2,m,TRUE,Beagle,m,h
+Dakota,Laziest dog on the planet,7,f,FALSE,St. Bernard,l,l
+Argus,Will steal your food,8,f,TRUE,Shiba Inu,m,m
+Kai,Can jump higher than you,5,m,TRUE,Pit Bull,m,h
+Diamond,Definition of the lap dog,7,f,TRUE,Bulldog,m,h
+Mia,Tiny dog with a big heart,6,f,FALSE,Chihuahua,s,h
+Jack,Center of attention,1,m,TRUE,Doberman,l,m
+Baker,Arf Arf,2,f,TRUE,Shih Tzu,s,m
+Jill,I have a weak sense of smell,4,f,FALSE,Great Dane,l,l
+Yorkie,Got any steak?,3,f,TRUE,Border Collie,m,l
+Luna,Sophisticate,7,f,TRUE,Husky,h,h

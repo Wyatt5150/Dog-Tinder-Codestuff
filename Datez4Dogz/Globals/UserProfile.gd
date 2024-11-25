@@ -6,7 +6,7 @@ class_name UserProfile
 var pronouns:String
 var location:String
 
-var smoker : bool
+var smoker:bool
 
 var dogs:Array = [] # array of dog profiles
 

@@ -12,7 +12,7 @@ anchor_bottom = 0.11875
 offset_right = 100.0
 offset_bottom = -14.0
 texture = ExtResource("1_4uqb4")
-stretch_mode = 4
+stretch_mode = 3
 script = ExtResource("2_hy63p")
 metadata/_edit_use_anchors_ = true
 

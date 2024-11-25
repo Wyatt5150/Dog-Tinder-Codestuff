@@ -1,7 +1,7 @@
 extends TextureRect
 
 func set_profile(profile:Profile):
-	var sprite = $Image
+	var sprite:Node2D = $Image
 	var image:Texture2D = profile.pictures[0]
 	var imageSize:Vector2 = image.get_size()
 	var smaller = min(imageSize.x, imageSize.y)
