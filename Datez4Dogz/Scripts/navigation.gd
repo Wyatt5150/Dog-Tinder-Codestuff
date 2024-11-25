@@ -14,6 +14,8 @@ func _on_tab_container_tab_changed(tab: int) -> void:
 		1:
 			$TabContainer/ViewMatches.load_list()
 			$TabContainer/ViewMatches._on_back_button_down()
+		3:
+			$TabContainer/EditUserProfile.SetMode("edit")
 
 func reset_icons():
 	var tabs:TabContainer = $TabContainer

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmi47qyp3ruvw"]
+[gd_scene load_steps=5 format=3 uid="uid://cmi47qyp3ruvw"]
 
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="1_y3vi2"]
 [ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_1akho"]
+[ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="2_jcykm"]
 [ext_resource type="PackedScene" uid="uid://chjl1ir0gaxja" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="3_1th0d"]
 
 [node name="ContentContainer" type="VBoxContainer"]
@@ -29,6 +30,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("2_jcykm")
 text = "About You
 "
 horizontal_alignment = 1
@@ -77,6 +79,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("2_jcykm")
 text = "About Your Dogs
 "
 horizontal_alignment = 1
@@ -97,6 +100,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("2_jcykm")
 text = "People Preferences"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -121,6 +125,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("2_jcykm")
 text = "Dog Preferences"
 horizontal_alignment = 1
 vertical_alignment = 1

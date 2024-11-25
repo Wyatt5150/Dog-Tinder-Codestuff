@@ -100,6 +100,7 @@ size_flags_vertical = 3
 theme_override_constants/separation = 30
 
 [node name="LoginSection" type="Panel" parent="VBoxContainer/ColorRect/Content/ContentContainer"]
+unique_name_in_owner = true
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
@@ -114,6 +115,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+theme = ExtResource("2_0peoq")
 text = "Login Info"
 horizontal_alignment = 1
 vertical_alignment = 1
