@@ -19,4 +19,5 @@ func _change_text_size(newSize: String) -> void:
 	
 	title.set_font_size("font_size", "Label", sizes[newSize][0])
 	header.set_font_size("font_size", "Label", sizes[newSize][1])
-	body.set_font_size("font_size", "Label", sizes[newSize][2])
+	for type in ["Label","LineEdit","OptionButton"]:
+		body.set_font_size("font_size", type, sizes[newSize][2])

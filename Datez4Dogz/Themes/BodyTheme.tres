@@ -41,11 +41,12 @@ bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 border_color = Color(0.446777, 0.446777, 0.446777, 1)
 
 [resource]
-Button/font_sizes/font_size = 30
-Label/font_sizes/font_size = 30
+Button/font_sizes/font_size = 20
+Label/font_sizes/font_size = 20
+LineEdit/font_sizes/font_size = 20
 LineEdit/styles/focus = SubResource("StyleBoxFlat_pqpk6")
 LineEdit/styles/normal = SubResource("StyleBoxFlat_x2c6h")
-OptionButton/font_sizes/font_size = 32
+OptionButton/font_sizes/font_size = 20
 OptionButton/styles/focus = SubResource("StyleBoxEmpty_dxoch")
 OptionButton/styles/hover = SubResource("StyleBoxFlat_eqeud")
 OptionButton/styles/normal = SubResource("StyleBoxFlat_mb11j")
