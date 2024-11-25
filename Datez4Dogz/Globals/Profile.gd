@@ -3,20 +3,29 @@
 extends Resource
 class_name Profile
 
+enum YESNOMAYBE {
+	YES,
+	NO,
+	NOPREF
+}
+
 enum GENDER {
 	MALE,
 	FEMALE,
-	NONBINARY
+	NONBINARY,
+	NOPREF
 }
 enum SIZE {
 	SMALL,
 	MEDIUM,
-	LARGE
+	LARGE,
+	NOPREF
 }
 enum ACTIVITY {
 	HIGH,
 	MEDIUM,
-	LOW
+	LOW,
+	NOPREF
 }
 
 var name:String = ""

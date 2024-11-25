@@ -39,6 +39,8 @@ border_width_bottom = 2
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8p4l6"]
 bg_color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 border_color = Color(0.446777, 0.446777, 0.446777, 1)
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
 
 [resource]
 Button/font_sizes/font_size = 20

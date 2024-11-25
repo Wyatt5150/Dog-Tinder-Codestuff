@@ -55,6 +55,9 @@ func PopulateFields():
 	var fields = %ContentContainer.get_children()
 	
 	for field in fields:
+		if user.get(field.name) == null:
+			continue
+		
 		if field is BoolenSettingButton:
 			field._set_value(user.get(field.name))
 		

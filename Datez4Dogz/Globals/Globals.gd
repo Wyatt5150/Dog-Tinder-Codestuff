@@ -15,24 +15,53 @@ var undecidedIndex = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	make_default_profiles()
-	pass # Replace with function body.
 
 func make_default_profiles():
 	undecided.clear()
-
+	
+	
+	
 	var dog = DogProfile.new()
 	dog.name = "Doug"
 	dog.bio = "Good boi"
-	dog.gender = "Male"
+	dog.gender = Profile.GENDER.MALE
+	dog.activity = Profile.ACTIVITY.LOW
+	dog.size = Profile.SIZE.SMALL
+	dog.neutered = Profile.YESNOMAYBE.YES
+	dog.vaccinated = Profile.YESNOMAYBE.YES
 	dog.age = 3
 	dog.pictures = [load("res://Sprites/DogPics/oakley.jpg"),load("res://Sprites/DogPics/oakley2.jpg"),load("res://Sprites/DogPics/oakleyAnnieRollo.jpg")]
 	
 	var profile = UserProfile.new()
+	profile.name = "Standard Regualar Person"
+	profile.pronouns = "De/Fault"
+	profile.age = 28
+	profile.location = "Somewhere, Real"
+	profile.bio = "This is a default me!"
+	profile.gender = Profile.GENDER.FEMALE
+	profile.smoker = Profile.YESNOMAYBE.NO
+	
+	profile.smoker_preference = Profile.YESNOMAYBE.NO
+	profile.activity_preference = Profile.ACTIVITY.NOPREF
+	profile.size_preference = Profile.SIZE.NOPREF
+	profile.gender_preference = Profile.GENDER.NOPREF
+	profile.neutered_preference = Profile.YESNOMAYBE.NOPREF
+	profile.vaccinated_preference = Profile.YESNOMAYBE.YES
+	
+	profile.dogs.append(dog)
+	
+	profile.pictures = [load("res://Sprites/DogPics/husky2-1.jpg"),load("res://Sprites/DogPics/husky2-2.jpg")]
+	
+	currentUser = profile
+	
+	profile = UserProfile.new()
 	profile.name = "Norm El Man"
 	profile.pronouns = "Hu/Man"
 	profile.age = 28
 	profile.location = "real place, tx"
 	profile.bio = "I am a person that exist"
+	profile.gender = Profile.GENDER.MALE
+	profile.smoker = Profile.YESNOMAYBE.NO
 	profile.dogs.append(dog)
 
 	profile.pictures = [load("res://Sprites/DogPics/husky2-1.jpg"),load("res://Sprites/DogPics/husky2-2.jpg")]
@@ -45,6 +74,8 @@ func make_default_profiles():
 	profile.age = 28
 	profile.location = "real place, tx"
 	profile.bio = "I am real i swear"
+	profile.gender = Profile.GENDER.FEMALE
+	profile.smoker = Profile.YESNOMAYBE.NO
 	profile.dogs.append(dog)
 
 	profile.pictures = [load("res://Sprites/DogPics/oakley.jpg"),load("res://Sprites/DogPics/oakley2.jpg")]
@@ -94,24 +125,29 @@ func filter_compatible():
 
 func current_compatibile_with(otherUser:UserProfile):
 	# Human Preferences
-	if currentUser.gender_preference != "None" and currentUser.gender_preference != otherUser.gender_string():
-		return false
+	if currentUser.gender_preference != Profile.YESNOMAYBE.NOPREF:
+		if currentUser.gender_preference != otherUser.gender:
+			return false
 		
 	
-	if currentUser.smoker_preference and otherUser.smoker_trait:
-		return false
+	if currentUser.smoker_preference == Profile.YESNOMAYBE.NO: 
+		if otherUser.smoker == Profile.YESNOMAYBE.YES:
+			return false
 	
 	# Dog Preferences
 	var notNeutered = {} #pretend this is a set
 	for dog:DogProfile in otherUser.dogs:
-		if currentUser.vaccinated_preference and !dog.vaccinated:
-			return false
+		if currentUser.vaccinated_preference != Profile.YESNOMAYBE.NO:
+			if dog.vaccinated != Profile.YESNOMAYBE.YES:
+				return false
 		
-		if currentUser.size_preference != "None" and currentUser.size_preference != dog.size:
-			return false
+		if currentUser.size_preference != Profile.SIZE.NOPREF:
+			if currentUser.size_preference != dog.size:
+				return false
 		
-		if currentUser.activity_preference != "None" and currentUser.activity_preference != dog.activity:
-			return false
+		#if currentUser.activity_preference != "None":
+			#if currentUser.activity_preference != dog.activity:
+			#return false
 		
 		if !dog.neutered:
 			notNeutered.add(dog.gender)
