@@ -1,0 +1,204 @@
+[gd_scene load_steps=4 format=3 uid="uid://c03wwq5dcxbd7"]
+
+[ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="1_m0ixb"]
+[ext_resource type="Script" path="res://Scripts/profile_view_info.gd" id="2_e3j8c"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="2_npipk"]
+
+[node name="InfoContainer" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_npipk")
+script = ExtResource("2_e3j8c")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="PaddingLeft" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Name" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("1_m0ixb")
+text = "Name Placeholder"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+text_overrun_behavior = 3
+
+[node name="Info" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 3)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "23 - He/Him"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HSeparator2" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Bio" type="Label" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "bio place holder"
+autowrap_mode = 3
+
+[node name="HSeparator" type="HSeparator" parent="HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HumanInfo" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SizeBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/HumanInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SmokerLabel" type="Label" parent="HBoxContainer/VBoxContainer/HumanInfo/SizeBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Smoker "
+clip_text = true
+
+[node name="Smoker" type="Label" parent="HBoxContainer/VBoxContainer/HumanInfo/SizeBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Yes
+"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="DogInfo" type="VBoxContainer" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ActivityBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/DogInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActivityLabel" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/ActivityBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Activity Level
+"
+autowrap_mode = 3
+
+[node name="Activity" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/ActivityBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "High"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="SizeBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/DogInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/SizeBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Size
+"
+autowrap_mode = 3
+
+[node name="Size" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/SizeBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Large"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="VaccinatedBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/DogInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VaccinatedLabel" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/VaccinatedBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Vaccinated
+"
+autowrap_mode = 3
+
+[node name="Vaccinated" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/VaccinatedBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Yes"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="NeuteredBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/DogInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="NeuteredLabel" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/NeuteredBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Neutered/Spayed"
+autowrap_mode = 3
+
+[node name="Neutered" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/NeuteredBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Yes"
+horizontal_alignment = 2
+autowrap_mode = 3
+
+[node name="PaddingRight" type="Control" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

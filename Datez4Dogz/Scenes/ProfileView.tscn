@@ -1,12 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://b5pgeiq6wwn7x"]
+[gd_scene load_steps=15 format=3 uid="uid://b5pgeiq6wwn7x"]
 
 [ext_resource type="Script" path="res://Scripts/profile_view.gd" id="1_0g7d7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_h8h0o"]
 [ext_resource type="PackedScene" uid="uid://c1ml36s2gilgm" path="res://Scenes/ProfileButton.tscn" id="2_08yxv"]
 [ext_resource type="Theme" uid="uid://b3e6aarkeujla" path="res://Themes/DimButtonIconTheme.tres" id="4_fyybv"]
 [ext_resource type="Texture2D" uid="uid://dv3ifc4uto27l" path="res://Sprites/DogPics/oakleyAnnieRollo.jpg" id="5_5giti"]
-[ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="5_o150v"]
-[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="6_ee2mv"]
+[ext_resource type="PackedScene" uid="uid://c03wwq5dcxbd7" path="res://Scenes/profile_view_info.tscn" id="6_8u28a"]
 [ext_resource type="PackedScene" uid="uid://cfttifbxiujqg" path="res://Scenes/TouchScroll.tscn" id="8_royy3"]
 [ext_resource type="Shader" path="res://Shader/gradient.gdshader" id="9_bi8cb"]
 [ext_resource type="Script" path="res://addons/SmoothScroll/SmoothScrollContainer.gd" id="9_qra02"]
@@ -103,45 +102,9 @@ offset_right = 581.0
 offset_bottom = 1110.0
 color = Color(0.099986, 0.099986, 0.099986, 1)
 
-[node name="Container" type="VBoxContainer" parent="About"]
+[node name="InfoContainer" parent="About" instance=ExtResource("6_8u28a")]
+unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Name" type="Label" parent="About/Container"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("5_o150v")
-text = "Name Placeholder"
-autowrap_mode = 3
-
-[node name="Info" type="Label" parent="About/Container"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("6_ee2mv")
-text = "info place holder"
-autowrap_mode = 3
-
-[node name="Bio" type="Label" parent="About/Container"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("6_ee2mv")
-text = "bio place holder"
-autowrap_mode = 3
-
-[node name="Misc" type="Label" parent="About/Container"]
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-mouse_filter = 1
-theme = ExtResource("6_ee2mv")
-text = "misc plceholder"
-autowrap_mode = 3
 
 [node name="TouchScroll" parent="About" instance=ExtResource("8_royy3")]
 layout_mode = 1

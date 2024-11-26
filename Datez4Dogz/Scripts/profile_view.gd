@@ -61,42 +61,11 @@ func load_info():
 	
 	# load information
 	var about = $About
-	var container = $About/Container
-	
-	var username = container.get_node("Name")
-	username.text = profile.name
-	
-	var info = container.get_node("Info")
-	info.text = str(profile.age) + " - "
-	if profile is UserProfile:
-		info.text += profile.pronouns
-	else:
-		info.text += profile.gender_string()
-	
-	var bio = container.get_node("Bio")
-	bio.text = profile.bio
-	
-	var misc = container.get_node("Misc")
-	misc.text = ""
-	if profile is DogProfile:
-		if profile.vaccinated == Profile.YESNOMAYBE.YES:
-			misc.text += "Vaccinated"
-		else:
-			misc.text += "Not Vaccinated"
-		
-		misc.text += "\n"
-		
-		if !profile.neutered:
-			misc.text += "Not "
-		
-		if profile.gender == Profile.GENDER.FEMALE:
-			misc.text += "Spayed"
-		else:
-			misc.text += "Neutered"
+	%InfoContainer._populate_info(profile)
 	
 	# set container stuff
 	var viewportHeight = get_viewport().get_visible_rect().size.y
-	about.size.y = max($About/Container.size.y, viewportHeight-125)
+	about.size.y = viewportHeight-125 #max(%InfoContainer.size.y, viewportHeight-125)
 	$About/TouchScroll.minScroll = -(about.size.y - viewportHeight)
 	$About.position.y = $About/TouchScroll.maxScroll
 
