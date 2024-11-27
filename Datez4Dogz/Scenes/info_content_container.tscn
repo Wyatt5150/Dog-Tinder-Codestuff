@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cmi47qyp3ruvw"]
+[gd_scene load_steps=7 format=3 uid="uid://cmi47qyp3ruvw"]
 
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="1_y3vi2"]
 [ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="2_1akho"]
 [ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="2_jcykm"]
 [ext_resource type="PackedScene" uid="uid://chjl1ir0gaxja" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="3_1th0d"]
+[ext_resource type="PackedScene" uid="uid://cv0hgs3xttog6" path="res://Scenes/doug_Setup.tscn" id="5_26pqj"]
+[ext_resource type="Script" path="res://Scenes/techdebt.gd" id="5_85bhl"]
 
 [node name="ContentContainer" type="VBoxContainer"]
 anchors_preset = 15
@@ -73,7 +75,6 @@ placeholder_text = "Leave blank for no preference."
 display_subtext = false
 display_error_text = false
 invalid_text = "Name cannot be blank"
-regex_key = 2
 regex_invalid_message = "Field must contain only letters."
 
 [node name="smoker" parent="." instance=ExtResource("3_1th0d")]
@@ -105,46 +106,35 @@ vertical_alignment = 1
 
 [node name="Dougs" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 20
+script = ExtResource("5_85bhl")
+doug_field = ExtResource("5_26pqj")
 
-[node name="Doug1" type="VBoxContainer" parent="Dougs"]
+[node name="Doug" parent="Dougs" instance=ExtResource("5_26pqj")]
 layout_mode = 2
-theme_override_constants/separation = 15
 
-[node name="name" parent="Dougs/Doug1" instance=ExtResource("2_1akho")]
-custom_minimum_size = Vector2(0, 128)
+[node name="AddRemoveDougs" type="HBoxContainer" parent="Dougs"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
-mouse_filter = 1
-label_text = "Name"
-placeholder_text = "Enter Your Dogs Name!"
-display_subtext = false
-display_error_text = false
-invalid_text = "Name cannot be blank"
-required_use = true
-regex_key = 2
-regex_invalid_message = "Field must contain only letters."
 
-[node name="gender" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+[node name="Padding" type="Control" parent="Dougs/AddRemoveDougs"]
 layout_mode = 2
-label_text = "What is your gender?"
-property = 3
+size_flags_horizontal = 3
 
-[node name="size_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+[node name="Add" type="Button" parent="Dougs/AddRemoveDougs"]
 layout_mode = 2
-label_text = "What size is this dog?"
-property = 7
+size_flags_horizontal = 3
+text = "Add Dog"
 
-[node name="activity_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+[node name="Remove" type="Button" parent="Dougs/AddRemoveDougs"]
 layout_mode = 2
-label_text = "How active is this dog?"
-property = 5
+size_flags_horizontal = 3
+text = "Remove Dog"
 
-[node name="neutered_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
+[node name="Padding2" type="Control" parent="Dougs/AddRemoveDougs"]
 layout_mode = 2
-label_text = "Is this dog neutered?"
-
-[node name="vaccinated_preference" parent="Dougs/Doug1" instance=ExtResource("3_1th0d")]
-layout_mode = 2
-label_text = "Is this dog vaccinated?"
+size_flags_horizontal = 3
 
 [node name="Preferences" type="Panel" parent="."]
 self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
@@ -174,7 +164,7 @@ property = 4
 [node name="smoker_preference" parent="." instance=ExtResource("3_1th0d")]
 layout_mode = 2
 mouse_filter = 1
-label_text = "Are you willing to meeting smokers?"
+label_text = "Are you willing to meet smokers?"
 property = 1
 
 [node name="DogPreferences" type="Panel" parent="."]
@@ -215,3 +205,6 @@ property = 2
 [node name="vaccinated_preference" parent="." instance=ExtResource("3_1th0d")]
 layout_mode = 2
 label_text = "Do you want the other dogs to be vaccinated?"
+
+[connection signal="pressed" from="Dougs/AddRemoveDougs/Add" to="Dougs" method="_add_doug"]
+[connection signal="pressed" from="Dougs/AddRemoveDougs/Remove" to="Dougs" method="_remove_doug"]

@@ -25,8 +25,8 @@ const properties_map = {
 	},
 	PROPERTIES.YESNOMAYBE : {
 		"Yes" : Profile.YESNOMAYBE.YES, 
-		"No" : Profile.YESNOMAYBE.NO, 
-		"Maybe" : Profile.YESNOMAYBE.NOPREF
+		"Yes, If Opposite Sex" : Profile.YESNOMAYBE.NOPREF,
+		"No" : Profile.YESNOMAYBE.NO
 	},
 	PROPERTIES.GENDER_SELECT : {
 		"Male" : Profile.GENDER.MALE, 

@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://cv0hgs3xttog6"]
+
+[ext_resource type="Script" path="res://Scenes/doug_setup.gd" id="1_hdqwx"]
+[ext_resource type="PackedScene" uid="uid://cum2h2tgqmh77" path="res://Scenes/Panels/SettingPanel.tscn" id="1_u5t2o"]
+[ext_resource type="PackedScene" uid="uid://chjl1ir0gaxja" path="res://Scenes/Panels/boolean_setting_panel.tscn" id="2_sifnc"]
+[ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="2_sx2j4"]
+[ext_resource type="Theme" uid="uid://brtq38ympa1w8" path="res://Themes/SmallHeaderTheme.tres" id="3_xlhcr"]
+
+[node name="DougInfo" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+script = ExtResource("1_hdqwx")
+
+[node name="DogSection" type="Panel" parent="."]
+self_modulate = Color(0.427493, 0.427493, 0.427493, 1)
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+mouse_filter = 1
+theme = ExtResource("2_sx2j4")
+
+[node name="Label" type="Label" parent="DogSection"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource("3_xlhcr")
+text = "Dog 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="name" parent="." instance=ExtResource("1_u5t2o")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "What is your dog's name?"
+placeholder_text = "Enter Your Dog's Name!"
+display_subtext = false
+display_error_text = false
+invalid_text = "Name cannot be blank"
+required_use = true
+regex_key = 2
+regex_invalid_message = "Field must contain only letters."
+
+[node name="age" parent="." instance=ExtResource("1_u5t2o")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "How old is your dog?"
+placeholder_text = "Enter Your Dogs Age!"
+display_subtext = false
+display_error_text = false
+invalid_text = "Name cannot be blank"
+required_use = true
+regex_key = 3
+regex_invalid_message = "Field must contain only numbers."
+
+[node name="breed" parent="." instance=ExtResource("1_u5t2o")]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+mouse_filter = 1
+label_text = "What is your dogs breed?"
+placeholder_text = "Enter Your Dogs breed!"
+display_subtext = false
+display_error_text = false
+invalid_text = "Name cannot be blank"
+regex_key = 2
+regex_invalid_message = "Field must contain only letters."
+
+[node name="gender" parent="." instance=ExtResource("2_sifnc")]
+layout_mode = 2
+label_text = "What is your gender?"
+property = 3
+
+[node name="size" parent="." instance=ExtResource("2_sifnc")]
+layout_mode = 2
+label_text = "What size is this dog?"
+property = 7
+
+[node name="activity" parent="." instance=ExtResource("2_sifnc")]
+layout_mode = 2
+label_text = "How active is this dog?"
+property = 5
+
+[node name="neutered" parent="." instance=ExtResource("2_sifnc")]
+layout_mode = 2
+label_text = "Is this dog neutered?"
+
+[node name="vaccinated" parent="." instance=ExtResource("2_sifnc")]
+layout_mode = 2
+label_text = "Is this dog vaccinated?"

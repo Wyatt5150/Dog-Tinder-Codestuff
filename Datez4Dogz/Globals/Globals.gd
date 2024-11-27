@@ -237,45 +237,35 @@ func next_user():
 	deciding = user
 
 func current_compatibile_with(otherUser:UserProfile):
-	print(otherUser)
-	# Human Preferences
+	print(otherUser.name)
 	if currentUser.gender_preference != Profile.GENDER.NOPREF:
 		if currentUser.gender_preference != otherUser.gender:
-			print("Gender")
 			return false
 	
 	if currentUser.smoker_preference == Profile.YESNOMAYBE.NO: 
 		if otherUser.smoker == Profile.YESNOMAYBE.YES:
-			print("Smoker")
 			return false
 	
-	# Dog Preferences
-	var notNeutered = [] #pretend this is a set
 	for dog:DogProfile in otherUser.dogs:
 		if currentUser.vaccinated_preference == Profile.YESNOMAYBE.YES:
 			if dog.vaccinated != Profile.YESNOMAYBE.YES:
-				print("Vax")
 				return false
 		if currentUser.size_preference != Profile.SIZE.NOPREF:
 			if currentUser.size_preference != dog.size:
-				print("Size")
 				return false
-		#if currentUser.activity_preference != "None":
-			#if currentUser.activity_preference != dog.activity:
-			#return false
-		if dog.neutered == Profile.YESNOMAYBE.NO:
-			notNeutered.append(dog.gender)
-	
-	match currentUser.neutered_preference:
-		"Yes":
-			if !notNeutered.is_empty():
+		if currentUser.activity_preference != Profile.ACTIVITY.NOPREF:
+			if currentUser.activity_preference != dog.activity:
 				return false
-		"Maybe":
-			for dog:DogProfile in currentUser.dogs:
-				for gender in notNeutered:
-					if dog.gender != gender:
+		
+		if dog.neutered != Profile.YESNOMAYBE.YES:
+			if currentUser.neutered_preference == Profile.YESNOMAYBE.YES:
+				if dog.neutered == Profile.YESNOMAYBE.NO:
+					return false
+			if currentUser.neutered_preference == Profile.YESNOMAYBE.NOPREF:
+				for userDog:DogProfile in currentUser.dogs:
+					if dog.gender != userDog.gender:
 						return false
-
+	
 	return true
 
 # user decisions

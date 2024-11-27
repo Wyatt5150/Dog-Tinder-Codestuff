@@ -7,6 +7,8 @@ func SetMode(m:String):
 		%LoginSection.visible = false
 		%Username.visible = false
 		%Password.visible = false
+		%Back.hide()
+		%Save.text = "Save"
 		PopulateFields()
 
 func BackButton() -> void:
@@ -48,6 +50,10 @@ func UpdateUser():
 		if field is SettingPanel: 
 			new_user.set(field.name, field._get_value())
 		
+		if field is DogContainer:
+			new_user.dogs = field._get_dougs()
+	
+	print(new_user.dogs)
 	Globals.currentUser = new_user
 
 func PopulateFields():
