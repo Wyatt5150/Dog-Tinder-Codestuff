@@ -214,9 +214,10 @@ func make_dog(i:int):
 		dog.vaccinated = Profile.YESNOMAYBE.YES
 	
 	dog.pictures = []
-	for filename in DirAccess.get_files_at("res://Sprites/DogPics"):
-		if filename.contains(dog.name) and !filename.contains(".import"):
-			dog.pictures.append(load("res://Sprites/DogPics/"+filename))
+	for extension in ["png","jpeg","jpg"]:
+		var pic = load("res://Sprites/DogPics/"+dog.name+"."+extension)
+		if pic != null:
+			dog.pictures.append(pic)
 	
 	return dog
 

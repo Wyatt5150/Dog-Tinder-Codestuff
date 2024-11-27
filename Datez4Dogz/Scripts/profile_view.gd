@@ -77,6 +77,8 @@ func set_profile_image(index):
 	userImage.texture = images[index]
 	if profile is UserProfile:
 		userImage.modulate = profile.get_color()
+	else:
+		userImage.modulate = Color.WHITE
 
 func change_image(incr: int) -> void:
 	set_profile_image(imageIndex+incr)
