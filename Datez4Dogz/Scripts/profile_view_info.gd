@@ -1,6 +1,5 @@
 extends VBoxContainer
 
-
 func _populate_info(profile : Profile):
 	%Name.text = profile.name
 	%Bio.text = profile.bio
@@ -48,6 +47,7 @@ func _dog_info(profile : DogProfile):
 	
 	%Activity.text = profile.activity_string()
 	%Size.text = profile.size_string()
+	%Breed.text = profile.breed
 	
 
 func _is_true(yesno : Profile.YESNOMAYBE) -> bool:

@@ -167,7 +167,7 @@ func make_user(i:int):
 		
 	var files = DirAccess.get_files_at("Sprites/DogPics")
 	profile.pictures = []
-	profile.pictures.append(load("res://icon.svg"))
+	profile.pictures.append(load("res://Sprites/UserPics/defaultUser.png"))
 	#for filename in DirAccess.get_files_at("Sprites/UserPics"):
 		#if filename.contains(username) and !filename.contains(".import"):
 			#profile.pictures.append(load("res://Sprites/UserPics/"+filename))

@@ -1,5 +1,8 @@
 extends Control
 
+func _ready() -> void:
+	Settings.set_text_size("medium")
+
 func NewUser() -> void:
 	SceneManager.Change_Scene(SceneManager.SCENES.SETUP)
 

@@ -9,3 +9,7 @@ func set_profile(profile:Profile):
 	
 	sprite.texture = image
 	sprite.scale = Vector2(resize,resize)
+	if profile is UserProfile:
+		sprite.modulate = profile.get_color()
+	else:
+		sprite.modulate = Color.WHITE

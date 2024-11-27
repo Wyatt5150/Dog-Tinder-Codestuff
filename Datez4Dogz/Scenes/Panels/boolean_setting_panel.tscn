@@ -28,14 +28,18 @@ grow_vertical = 2
 
 [node name="InputLabel" type="Label" parent="VBoxContainer2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_vertical = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_f55ij")
 text = "Placeholder:"
 vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(0, 32)
 layout_mode = 2
 
 [node name="PaddingL" type="Control" parent="VBoxContainer2/HBoxContainer"]
@@ -60,3 +64,6 @@ popup/item_1/id = 1
 [node name="PaddingR" type="Control" parent="VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+
+[connection signal="theme_changed" from="VBoxContainer2/InputLabel" to="." method="_on_input_label_changed"]
+[connection signal="ready" from="VBoxContainer2/HBoxContainer/OptionButton" to="." method="_on_input_label_changed"]

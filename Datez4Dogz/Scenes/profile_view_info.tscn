@@ -35,7 +35,6 @@ text = "Name Placeholder"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
-text_overrun_behavior = 3
 
 [node name="Info" type="Label" parent="HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -98,6 +97,31 @@ autowrap_mode = 3
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="BreedBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/DogInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BreedLabel" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/BreedBox"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "Breed
+"
+autowrap_mode = 3
+
+[node name="Breed" type="Label" parent="HBoxContainer/VBoxContainer/DogInfo/BreedBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 1
+theme = ExtResource("2_npipk")
+text = "High"
+horizontal_alignment = 2
+autowrap_mode = 3
 
 [node name="ActivityBox" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/DogInfo"]
 layout_mode = 2

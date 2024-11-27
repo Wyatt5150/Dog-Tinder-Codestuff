@@ -67,6 +67,7 @@ const properties_map = {
 	set(new_val):
 		%InputLabel.text = new_val
 		label_text = new_val
+		_on_input_label_changed()
 
 @export var property : PROPERTIES = PROPERTIES.YESNO :
 	set(new_val):
@@ -91,4 +92,10 @@ func set_dropdown() -> void:
 	%OptionButton.clear()
 	for item in properties_map[property].keys():
 		%OptionButton.add_item(item)
-	
+
+
+func _on_input_label_changed() -> void:
+	if %InputLabel.get_line_count() > 2:
+		self.custom_minimum_size.y = 64
+	else:
+		self.custom_minimum_size.y = 40 * %InputLabel.get_line_count() + 32

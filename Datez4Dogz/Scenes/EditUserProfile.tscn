@@ -71,6 +71,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_vertical = 0
+theme = ExtResource("1_et03q")
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer"]
 layout_mode = 2
@@ -171,12 +172,14 @@ grow_vertical = 2
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_fet4r")
 text = "BACK"
 
 [node name="Save" type="Button" parent="VBoxContainer/NavigationButtons/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme = ExtResource("3_fet4r")
 text = "CONTINUE"
 
 [connection signal="pressed" from="VBoxContainer/NavigationButtons/VBoxContainer/Back" to="." method="BackButton"]

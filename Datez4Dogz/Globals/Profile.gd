@@ -42,3 +42,13 @@ func gender_string():
 			return "male"
 		GENDER.NONBINARY:
 			return "nonbinary"
+			
+func get_color():
+	var rng = RandomNumberGenerator.new()
+	rng.seed = hash(name)
+	var vals = [rng.randf_range(0,1), rng.randf_range(0,1), rng.randf_range(0,1)]
+	if !vals.has(1):
+		vals[rng.randf_range(0,2)] = 1
+	
+	return Color(vals[0],vals[1],vals[2])
+	

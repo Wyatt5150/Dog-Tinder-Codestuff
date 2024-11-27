@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5yuaqllf0wpw"]
+[gd_scene load_steps=5 format=3 uid="uid://b5yuaqllf0wpw"]
 
 [ext_resource type="Script" path="res://Scripts/main_menu.gd" id="1_3rsg7"]
 [ext_resource type="Theme" uid="uid://de8v2cdqc8x16" path="res://Themes/BigHeaderTheme.tres" id="1_qlmn8"]
 [ext_resource type="Theme" uid="uid://6hdp0kr0obht" path="res://Themes/BodyTheme.tres" id="2_60r4u"]
+[ext_resource type="Texture2D" uid="uid://bxv10buqddwmd" path="res://Sprites/Icons/Discover.png" id="4_yruhc"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -17,7 +18,7 @@ script = ExtResource("1_3rsg7")
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 560.0
+offset_bottom = 374.0
 grow_horizontal = 2
 theme = ExtResource("1_qlmn8")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
@@ -35,9 +36,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 51.0
-offset_top = -323.0
+offset_top = -280.0
 offset_right = -51.0
-offset_bottom = -90.0
+offset_bottom = -47.0
 grow_horizontal = 2
 grow_vertical = 0
 theme = ExtResource("2_60r4u")
@@ -56,6 +57,10 @@ size_flags_vertical = 3
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 32
 text = "Returning User !"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(270, 518)
+texture = ExtResource("4_yruhc")
 
 [connection signal="pressed" from="VBoxContainer/NewUser" to="." method="NewUser"]
 [connection signal="pressed" from="VBoxContainer/ReturningUser" to="." method="ReturningUser"]

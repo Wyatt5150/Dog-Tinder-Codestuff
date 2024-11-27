@@ -6,6 +6,8 @@ var holding:bool
 var parent:Node
 var prev:float
 var vel:float
+var startTime:float
+var startPos:float
 @export var maxScroll:float = 1920
 @export var minScroll:float = 0
 enum AXIS {HORIZONTAL, VERTICAL}
@@ -44,7 +46,9 @@ func _process(delta: float) -> void:
 	
 func button_down() -> void:
 	prev = get_mouse_pos()
+	startPos = prev
 	holding = true
+	startTime = Time.get_ticks_msec()
 
 func get_mouse_pos() -> float:
 	if direction == VERTICAL:
