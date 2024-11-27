@@ -156,6 +156,10 @@ func make_user(i:int):
 		profile.pronouns = data[3]
 		
 	profile.location = currentUser.location
+	var rand = randfn(30,10)
+	while rand < 18 or rand > 100:
+		rand = randfn(30,10)
+	profile.age = rand
 	
 	if currentUser.smoker_preference and randi_range(1,10) == 1:
 		profile.smoker = Profile.YESNOMAYBE.NO
